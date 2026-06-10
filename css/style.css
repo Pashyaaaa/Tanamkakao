@@ -1,44 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    position: fixed;
-    display: flex;
-    width: 100vw;
-    background-color: #6B8E23;
-    padding: 10px 10px 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  background-color: #6b8e23;
+  padding: 10px 10px 10px 30px;
 }
 .logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: #5D4037;
+  font-size: 30px;
+  font-weight: bold;
+  color: #5d4037;
 }
 .logop {
-    font-size: 30px;
-    color: rgb(218, 215, 215);
+  font-size: 30px;
+  color: rgb(218, 215, 215);
 }
-.logo-icon{
-    display: flex;
-    align-items: center;
-
+.logo-icon {
+  display: flex;
+  align-items: center;
 }
-.icon-menu{
-    height: 30px;
-    margin-left: 10px;
+.icon-menu {
+  height: 30px;
+  margin-left: 10px;
 }
-.icon-profil{
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+.icon-profil {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 .main-container {
     display: flex;
@@ -61,15 +60,16 @@
     justify-content: space-between;
     overflow: hidden;
     padding: 30px 0 20px 10px;
+
 }
 .nav-container {
-    height: calc(100vh - 70px);
-    width: 250px;
-    position: relative;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    transition: all 0.5s ease-in-out;
-    border: 1px solid;
+  height: calc(100vh - 70px);
+  width: 250px;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
+  border: 1px solid;
 }
 .nav-container::-webkit-scrollbar {
   display: none;
