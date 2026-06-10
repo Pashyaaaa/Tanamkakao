@@ -54,6 +54,28 @@ body {
   align-items: center;
   margin-right: 20px;
 }
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 12px;
+  }
+  
+  .logout-btn:hover {
+    background-color: rgba(255, 80, 80, 0.2);
+    border-color: var(--one-time-use);
+    color: var(--third-color);
+  }
 .main-container {
     display: flex;
     width: 100%;
@@ -62,13 +84,13 @@ body {
     z-index: 1;
 }
 .nav {
-    min-height: 91vh;
+    height: calc(100vh - 70px);
     width: 250px;
     background-color: var(--primary-color);
-    border-radius: 0px 10px 10px 1px;
+    border-radius: 0px 10px 0px 0px;
     position: absolute;
     top: 0px;
-    left: 00;
+    left: 0;
     box-shadow: 1px 1px 10px rgba(228, 227, 234, 0.825);
     display: flex;
     flex-direction: column;

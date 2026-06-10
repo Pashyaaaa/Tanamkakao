@@ -9,29 +9,59 @@
 
 <body>
 
+<!-- HEADER -->
   <div class="header">
     <i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255); visibility: hidden;"></i>
     <div class="logo">Tanam<span class="logop">Kakao</span></div>
 
     <div class="icon-profil">
-      <i class="fa-solid fa-user fa-xl" style="color: rgb(255, 255, 255);"></i>
+      <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255);"></i>
+      <button class="logout-btn" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Keluar</span>
+      </button>
     </div>
   </div>
+<!-- END HEADER -->
 
-  <div class="main-container">
+<!-- SIDEBAR NAV -->
+<div class="main-container">
+  <div class="navcontainer">
     <div class="nav">
-      <div class="nav-upper-option">
-        <div class="nav-option">
-          <i class="fa-solid fa-house fa-xl" style="color: rgb(255, 255, 255);"></i>
-          <h3>Dashboard</h3>
+        <div class="nav-upper-options">
+          <div class="nav-option">
+            <i class="fa-solid fa-house fa-lg" style="color: rgb(255, 255, 255);"></i>
+            <h3>Dashboard</h3>
+          </div>
+          <div class="nav-option">
+            <i class="fa-solid fa-robot fa-lg" style="color: rgb(255, 255, 255);"></i>
+            <h3>Smart Seeding Matching</h3>
+          </div>
+          <div class="nav-option">
+            <i class="fa-solid fa-trowel fa-lg" style="color: rgb(255, 255, 255);"></i>
+            <h3>Kebun Saya</h3>
+          </div>
+          <div class="nav-option">
+            <i class="fa-regular fa-calendar-days fa-lg" style="color: rgb(255, 255, 255);"></i>
+            <h3>Jadwal Rawat</h3>
+          </div>
+          <div class="nav-option">
+            <i class="fa-solid fa-seedling fa-lg" style="color: rgb(255, 255, 255);"></i>
+            <h3>Penjual & Stock Bibit</h3>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- END SIDEBAR NAV -->
 
   <div id="content"></div>
 
   <script src="https://kit.fontawesome.com/26baa55295.js" crossorigin="anonymous"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    requireAuth();
+  </script>
   <script src="js/index.js"></script>
 </body>
 
