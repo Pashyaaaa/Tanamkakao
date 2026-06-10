@@ -16,6 +16,10 @@
 
     <div class="icon-profil">
       <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255);"></i>
+      <button class="logout-btn" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Keluar</span>
+      </button>
     </div>
   </div>
 <!-- END HEADER -->
@@ -54,6 +58,10 @@
   <div id="content"></div>
 
   <script src="https://kit.fontawesome.com/26baa55295.js" crossorigin="anonymous"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    requireAuth();
+  </script>
   <script src="js/index.js"></script>
 </body>
 
