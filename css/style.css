@@ -1,4 +1,11 @@
-h1 {
-  color: aqua;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root {
+    --background-color1: #f4f1e9;
+    --background-color2: #b3b3b3;
+    --primary-color: #2b463c;
+    --secondary-color: #688f4e;
+    --third-color: #b1d182;
+    --one-time-use: #ff8000;
+    --second-time-use: #3131d0;
+}
