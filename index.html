@@ -2,45 +2,52 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TanamKakao — Platform Kebun Kakao Digital</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
+    <title>TanamKakao - Platform Kakao Digital</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <div id="noticeBar">
-      Akses dasbor memerlukan login terlebih dahulu. &nbsp;
-      <a href="auth/login.html">Masuk sekarang →</a>
+      🔔 <a href="auth/login.html">Masuk</a> atau
+      <a href="auth/register.html">Daftar</a> untuk mengakses dasbor lengkap 🌱
     </div>
 
-    <nav>
+    <nav id="mainNav">
       <a href="index.html" class="nav-logo">🌱 TanamKakao</a>
-
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
       <div class="nav-links" id="navLinks"></div>
+      <div class="nav-overlay"></div>
     </nav>
 
-    <section style="padding: 0">
-      <div class="hero">
+    <section class="hero-section">
+      <div class="hero-parallax-image"></div>
+      <div class="hero-floating-cocoas" id="floatingCocoas"></div>
+      <div class="hero-content">
         <div class="hero-badge">Platform Kakao Digital</div>
-        <h1>
+        <h1 id="heroTitle">
           Kebun kakao Anda,<br /><em>lebih cerdas</em> dari<br />sebelumnya.
         </h1>
-        <p>
+        <p id="heroDesc">
           Pantau kondisi tanaman, jadwalkan perawatan, dan analisis hasil panen
           — semuanya dalam satu dasbor yang mudah digunakan.
         </p>
         <div class="hero-cta" id="heroCta"></div>
-        <div class="hero-stats">
+        <div class="hero-stats" id="heroStats">
           <div class="stat-item">
             <div class="stat-num">12.400+</div>
             <div class="stat-label">Petani terdaftar</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">98%</div>
-            <div class="stat-label">Tingkat kepuasan</div>
+            <div class="stat-label" id="tingkat-kepuasan">Tingkat kepuasan</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">32 Prov.</div>
@@ -141,7 +148,8 @@
             </ul>
           </div>
           <div class="about-visual">
-            <span class="about-visual-emoji">🌱</span>
+            <span class="about-visual-emoji"></span>
+            <p class="about-visual-text"></p>
           </div>
         </div>
       </div>
@@ -180,12 +188,11 @@
               <div>
                 <div class="contact-card-title">Kantor</div>
                 <div class="contact-card-val">
-                  Jl. Perkebunan Raya No. 12,<br />Makassar, Sulawesi Selatan
+                  Jl. Trunodjoyo No. 12,<br />Pejagan, Bangkalan
                 </div>
               </div>
             </div>
           </div>
-
           <form class="contact-form" id="contactForm" novalidate>
             <div class="cf-row">
               <div class="cf-field">
@@ -237,6 +244,7 @@
     </section>
 
     <footer>
+      <canvas id="footerParticleCanvas"></canvas>
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-brand">
@@ -278,127 +286,14 @@
             © 2025 TanamKakao. Hak cipta dilindungi.
           </div>
           <div class="footer-bottom-links">
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
-            <a href="#">Facebook</a>
+            <a href="#">Instagram</a><a href="#">YouTube</a
+            ><a href="#">Facebook</a>
           </div>
         </div>
       </div>
     </footer>
 
     <script src="js/auth.js"></script>
-    <script>
-      const session = getSession();
-      const navLinks = document.getElementById("navLinks");
-      const heroCta = document.getElementById("heroCta");
-      const noticeBar = document.getElementById("noticeBar");
-
-      if (session) {
-        noticeBar.style.display = "none";
-
-        const initials = session.name
-          .split(" ")
-          .map((w) => w[0])
-          .join("")
-          .slice(0, 2)
-          .toUpperCase();
-
-        navLinks.innerHTML = `
-        <a href="#features" class="nav-text">Fitur</a>
-        <a href="#about" class="nav-text">Tentang</a>
-        <a href="#contact" class="nav-text">Kontak</a>
-        <div class="profile-wrap" id="profileWrap">
-          <button class="profile-btn" id="profileBtn" aria-haspopup="true" aria-expanded="false">
-            <div class="profile-avatar">${initials}</div>
-            ${session.name.split(" ")[0]}
-            <svg class="profile-chevron" viewBox="0 0 16 16" fill="none">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="profile-dropdown" id="profileDropdown" role="menu">
-            <div class="dropdown-header">
-              <div class="dropdown-name">${session.name}</div>
-              <div class="dropdown-email">${session.email}</div>
-            </div>
-            <div class="dropdown-menu">
-              <a href="Dashboard/index.html" class="dropdown-item" role="menuitem">
-                <span class="di-icon">🌿</span> Dasbor
-              </a>
-              <a href="#" class="dropdown-item" role="menuitem" id="manageProfileBtn">
-                <span class="di-icon">👤</span> Kelola Profil
-              </a>
-              <a href="#" class="dropdown-item" role="menuitem" id="changeThemeBtn">
-                <span class="di-icon">🎨</span> Ganti Tema
-              </a>
-              <div class="dropdown-sep"></div>
-              <button class="dropdown-item danger" id="logoutBtn" role="menuitem">
-                <span class="di-icon">🚪</span> Keluar
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
-
-        heroCta.innerHTML = `
-        <a href="Dashboard/index.html" class="cta-primary">🌿 Buka Dasbor</a>
-      `;
-
-        const profileWrap = document.getElementById("profileWrap");
-        document.getElementById("profileBtn").addEventListener("click", (e) => {
-          e.stopPropagation();
-          profileWrap.classList.toggle("open");
-        });
-        document.addEventListener("click", () =>
-          profileWrap.classList.remove("open"),
-        );
-
-        document.getElementById("logoutBtn").addEventListener("click", () => {
-          logout();
-        });
-
-        document
-          .getElementById("manageProfileBtn")
-          .addEventListener("click", (e) => {
-            e.preventDefault();
-            alert("Fitur kelola profil akan segera hadir!");
-          });
-
-        document
-          .getElementById("changeThemeBtn")
-          .addEventListener("click", (e) => {
-            e.preventDefault();
-            alert("Fitur ganti tema akan segera hadir!");
-          });
-      } else {
-        noticeBar.style.display = "block";
-
-        navLinks.innerHTML = `
-        <a href="#features" class="nav-text">Fitur</a>
-        <a href="#about" class="nav-text">Tentang</a>
-        <a href="#contact" class="nav-text">Kontak</a>
-        <a href="auth/login.html" class="nav-login">Masuk</a>
-        <a href="auth/register.html" class="nav-register">Daftar Gratis</a>
-      `;
-
-        heroCta.innerHTML = `
-        <a href="auth/register.html" class="cta-primary">🌱 Mulai Gratis</a>
-        <a href="auth/login.html" class="cta-secondary">Sudah punya akun? Masuk</a>
-      `;
-      }
-
-      document.getElementById("contactForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const name = document.getElementById("cfName").value.trim();
-        const email = document.getElementById("cfEmail").value.trim();
-        const msg = document.getElementById("cfMsg").value.trim();
-        if (!name || !email || !msg) return;
-        const success = document.getElementById("cfSuccess");
-        success.style.display = "block";
-        e.target.reset();
-        setTimeout(() => {
-          success.style.display = "none";
-        }, 5000);
-      });
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>
