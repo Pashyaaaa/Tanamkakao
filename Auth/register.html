@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar — TanamKakao</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/auth.css" />
+  </head>
+  <body>
+    <aside class="brand-panel">
+      <a href="../index.html" class="brand-logo">
+        <span class="logo-icon">🌱</span>
+        <span class="logo-text">TanamKakao</span>
+      </a>
+      <div class="brand-body">
+        <p class="brand-eyebrow">Mulai perjalanan Anda</p>
+        <h1 class="brand-headline">
+          Kelola kebun<br />kakao dengan<br />lebih cerdas.
+        </h1>
+        <p class="brand-sub">
+          Bergabung bersama ribuan petani yang sudah mempercayai TanamKakao
+          untuk kebun mereka.
+        </p>
+      </div>
+      <ul class="brand-features" aria-label="Fitur unggulan">
+        <li><span class="feat-dot"></span> Pantau kondisi tanaman real-time</li>
+        <li><span class="feat-dot"></span> Jadwal perawatan otomatis</li>
+        <li><span class="feat-dot"></span> Laporan panen & analitik hasil</li>
+      </ul>
+      <div class="brand-deco" aria-hidden="true">
+        <div class="deco-circle c1"></div>
+        <div class="deco-circle c2"></div>
+        <div class="deco-leaf l1">🌿</div>
+        <div class="deco-leaf l2">🍫</div>
+      </div>
+    </aside>
+
+    <main class="form-panel">
+      <div class="form-container">
+        <div class="form-header">
+          <h2 class="form-title">Buat Akun</h2>
+          <p class="form-subtitle">
+            Sudah punya akun?
+            <a href="login.html" class="link">Masuk di sini</a>
+          </p>
+        </div>
+
+        <form id="registerForm" novalidate>
+          <div class="field-group">
+            <label class="field-label" for="name">Nama Lengkap</label>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <circle
+                    cx="10"
+                    cy="7"
+                    r="3"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M3 17C3 14 6.134 12 10 12C13.866 12 17 14 17 17"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              <input
+                class="field-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Budi Santoso"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <span class="field-error" id="nameError"></span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="email">Email</label>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M2.5 5.5C2.5 4.948 2.948 4.5 3.5 4.5H16.5C17.052 4.5 17.5 4.948 17.5 5.5V14.5C17.5 15.052 17.052 15.5 16.5 15.5H3.5C2.948 15.5 2.5 15.052 2.5 14.5V5.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M2.5 5.5L10 10.5L17.5 5.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </span>
+              <input
+                class="field-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="nama@email.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <span class="field-error" id="emailError"></span>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="password">Password</label>
+              <div class="input-wrap">
+                <span class="input-icon">
+                  <svg viewBox="0 0 20 20" fill="none">
+                    <rect
+                      x="4"
+                      y="9"
+                      width="12"
+                      height="9"
+                      rx="1.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M7 9V6.5A3 3 0 0 1 13 6.5V9"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle cx="10" cy="13.5" r="1" fill="currentColor" />
+                  </svg>
+                </span>
+                <input
+                  class="field-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Min. 8 karakter"
+                  autocomplete="new-password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="toggle-pw"
+                  id="togglePw"
+                  aria-label="Tampilkan password"
+                >
+                  <svg class="eye-icon" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M1 10C1 10 4 4 10 4C16 4 19 10 19 10C19 10 16 16 10 16C4 16 1 10 1 10Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle
+                      cx="10"
+                      cy="10"
+                      r="2.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <span class="field-error" id="passwordError"></span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="confirmPassword"
+                >Konfirmasi Password</label
+              >
+              <div class="input-wrap">
+                <span class="input-icon">
+                  <svg viewBox="0 0 20 20" fill="none">
+                    <rect
+                      x="4"
+                      y="9"
+                      width="12"
+                      height="9"
+                      rx="1.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M7 9V6.5A3 3 0 0 1 13 6.5V9"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle cx="10" cy="13.5" r="1" fill="currentColor" />
+                  </svg>
+                </span>
+                <input
+                  class="field-input"
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="Ulangi password"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+              <span class="field-error" id="confirmError"></span>
+            </div>
+          </div>
+
+          <div class="pw-strength" id="pwStrength" style="display: none">
+            <div class="strength-bar">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <span class="strength-label" id="strengthLabel"></span>
+          </div>
+
+          <div class="field-group checkbox-group">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                id="terms"
+                class="checkbox-input"
+                required
+              />
+              <span class="checkbox-custom"></span>
+              Saya setuju dengan
+              <a href="#" class="link">Syarat & Ketentuan</a> dan
+              <a href="#" class="link">Kebijakan Privasi</a>
+            </label>
+            <span class="field-error" id="termsError"></span>
+          </div>
+
+          <div
+            class="alert alert-error"
+            id="registerError"
+            style="display: none"
+          ></div>
+          <div
+            class="alert alert-success"
+            id="registerSuccess"
+            style="display: none"
+          ></div>
+
+          <button type="submit" class="btn-primary" id="submitBtn">
+            <span class="btn-text">Buat Akun Gratis</span>
+            <span class="btn-loader" style="display: none">
+              <svg class="spinner" viewBox="0 0 24 24">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  fill="none"
+                  stroke-dasharray="31.4"
+                  stroke-dashoffset="10"
+                />
+              </svg>
+            </span>
+          </button>
+        </form>
+
+        <div class="divider"><span>atau</span></div>
+
+        <a href="../index.html" class="btn-ghost">← Kembali ke beranda</a>
+      </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script>
+      redirectIfLoggedIn();
+
+      const toggleBtn = document.getElementById("togglePw");
+      const pwInput = document.getElementById("password");
+      toggleBtn.addEventListener("click", () => {
+        const isText = pwInput.type === "text";
+        pwInput.type = isText ? "password" : "text";
+      });
+
+      const strengthFill = document.getElementById("strengthFill");
+      const strengthLabel = document.getElementById("strengthLabel");
+      const pwStrength = document.getElementById("pwStrength");
+
+      pwInput.addEventListener("input", () => {
+        const val = pwInput.value;
+        if (!val) {
+          pwStrength.style.display = "none";
+          return;
+        }
+        pwStrength.style.display = "flex";
+
+        let score = 0;
+        if (val.length >= 8) score++;
+        if (/[A-Z]/.test(val)) score++;
+        if (/[0-9]/.test(val)) score++;
+        if (/[^A-Za-z0-9]/.test(val)) score++;
+
+        const levels = [
+          { label: "Sangat lemah", color: "#e53e3e", width: "25%" },
+          { label: "Lemah", color: "#ff8000", width: "50%" },
+          { label: "Cukup", color: "#d4ac0d", width: "75%" },
+          { label: "Kuat", color: "#688f4e", width: "100%" },
+        ];
+        const level = levels[Math.min(score - 1, 3)] || levels[0];
+        strengthFill.style.width = level.width;
+        strengthFill.style.background = level.color;
+        strengthLabel.textContent = level.label;
+        strengthLabel.style.color = level.color;
+      });
+
+      const form = document.getElementById("registerForm");
+      const registerError = document.getElementById("registerError");
+      const registerSuccess = document.getElementById("registerSuccess");
+      const submitBtn = document.getElementById("submitBtn");
+
+      function setLoading(loading) {
+        submitBtn.disabled = loading;
+        submitBtn.querySelector(".btn-text").style.display = loading
+          ? "none"
+          : "inline";
+        submitBtn.querySelector(".btn-loader").style.display = loading
+          ? "inline-flex"
+          : "none";
+      }
+
+      function clearErrors() {
+        [
+          "nameError",
+          "emailError",
+          "passwordError",
+          "confirmError",
+          "termsError",
+        ].forEach((id) => {
+          document.getElementById(id).textContent = "";
+        });
+        registerError.style.display = "none";
+        registerSuccess.style.display = "none";
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        clearErrors();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const confirm = document.getElementById("confirmPassword").value;
+        const terms = document.getElementById("terms").checked;
+
+        let valid = true;
+
+        if (!name) {
+          document.getElementById("nameError").textContent =
+            "Nama lengkap wajib diisi.";
+          valid = false;
+        }
+        if (!email) {
+          document.getElementById("emailError").textContent =
+            "Email wajib diisi.";
+          valid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          document.getElementById("emailError").textContent =
+            "Format email tidak valid.";
+          valid = false;
+        }
+        if (!password) {
+          document.getElementById("passwordError").textContent =
+            "Password wajib diisi.";
+          valid = false;
+        } else if (password.length < 8) {
+          document.getElementById("passwordError").textContent =
+            "Password minimal 8 karakter.";
+          valid = false;
+        }
+        if (password !== confirm) {
+          document.getElementById("confirmError").textContent =
+            "Konfirmasi password tidak cocok.";
+          valid = false;
+        }
+        if (!terms) {
+          document.getElementById("termsError").textContent =
+            "Anda harus menyetujui syarat & ketentuan.";
+          valid = false;
+        }
+        if (!valid) return;
+
+        setLoading(true);
+        setTimeout(() => {
+          const result = register(name, email, password);
+          setLoading(false);
+          if (result.success) {
+            registerSuccess.textContent =
+              "Akun berhasil dibuat! Mengalihkan ke halaman login…";
+            registerSuccess.style.display = "flex";
+            setTimeout(() => {
+              window.location.href = "login.html?registered=1";
+            }, 1200);
+          } else {
+            registerError.textContent = result.message;
+            registerError.style.display = "flex";
+          }
+        }, 700);
+      });
+    </script>
+  </body>
+</html>
