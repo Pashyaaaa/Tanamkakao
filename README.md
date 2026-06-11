@@ -51,10 +51,10 @@ Tidak perlu instalasi yang rumit, cukup jalankan secara lokal:
 
 ### 🤝 Kontribusi
 Jika kamu punya ide untuk membuat aplikasi ini lebih baik bagi petani kakao, silakan *fork* repository ini dan buat *pull request*.
-
+atau info lebih lanjut bisa ke instagram @Tanamkakao
 ---
 
 ### 💌 Pesan Pengembang
 > *"Proyek ini adalah bentuk komitmen saya untuk membantu digitalisasi pertanian. Semoga bermanfaat bagi mereka yang bertani di lapangan."*
 
-*Dibuat dengan penuh semangat oleh Pashya.*
+*Dibuat dengan penuh semangat oleh Kelompok 7.*
