@@ -236,7 +236,7 @@ function initStatsCounter() {
 
 function initHeroContentDepth() {
   const elements = document.querySelectorAll(
-    ".hero-badge, #heroTitle, #heroDesc, .hero-cta",
+    ".hero-badge, #heroTitle, #heroDesc, .cta-primary, .cta-secondary",
   );
   if (!elements.length) return;
 
@@ -296,10 +296,10 @@ function initFloatingCocoas(
     img.src = imagePath;
     img.alt = "";
 
-    const size = 70 + Math.random() * 30;
+    const size = 40 + Math.random() * 30;
     const randomColor =
       colorVariations[Math.floor(Math.random() * colorVariations.length)];
-    const randomBlur = `blur(2px)`;
+    const randomBlur = `blur(8px)`;
 
     img.style.width = `${size}px`;
     img.style.top = `${60 + Math.random() * 20}%`;
@@ -341,7 +341,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
   initStatsCounter();
   initFloatingCocoas("floatingCocoas", "assets/img/cocoa.png", 20, 20);
-  initHeroContentDepth();
 
   const session = getSession();
   const navLinks = document.getElementById("navLinks");
@@ -430,9 +429,11 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     heroCta.innerHTML = `
       <a href="auth/register.html" class="cta-primary">🌱 Mulai Gratis</a>
-      <a href="auth/login.html" class="cta-secondary">Sudah punya akun? Masuk</a>
+      <a href="auth/login.html" class="cta-secondary">Sudah Terdaftar? Masuk</a>
     `;
   }
+
+  initHeroContentDepth();
 
   window.addEventListener("resize", adjustNavPosition);
 
