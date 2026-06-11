@@ -1,6 +1,6 @@
 # TanamKakao 🌿
 
-TanamKakao adalah platform digital yang dirancang untuk memodernisasi cara petani kakao mengelola peremajaan kebun dan penanaman. Kami percaya bahwa teknologi harus memudahkan, bukan membingungkan.
+TanamKakao adalah platform digital yang dirancang untuk memodernisasi cara petani kakao mengelola peremajaan kebun dan penanaman. Kami percaya bahwa teknologi harus memudahkan, bukan membingungkan khususnya untuk para Petani.
 
 ---
 
