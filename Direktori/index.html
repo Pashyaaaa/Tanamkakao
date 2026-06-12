@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Direktori Penjual Bibit - TanamKakao</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/direktori.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <i
+        class="fa-solid fa-bars fa-xl"
+        style="color: rgb(255, 255, 255); visibility: hidden"
+      ></i>
+      <div class="logo">Tanam<span class="logop">Kakao</span></div>
+      <div class="icon-profil">
+        <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
+        <button class="logout-btn" onclick="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Keluar</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="navcontainer">
+        <div class="nav">
+          <div class="nav-upper-options">
+            <a href="../Dashboard/index.html" class="nav-option">
+              <i
+                class="fa-solid fa-house fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Dashboard</h3>
+            </a>
+            <a href="../" class="nav-option">
+              <i
+                class="fa-solid fa-robot fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Smart Seeding Matching</h3>
+            </a>
+            <a href="../kebun/kebun.html" class="nav-option">
+              <i
+                class="fa-solid fa-trowel fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Kebun Saya</h3>
+            </a>
+            <a href="jadwal.html" class="nav-option">
+              <i
+                class="fa-regular fa-calendar-days fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Jadwal Rawat</h3>
+            </a>
+            <a href="../Direktori/index.html" class="nav-option">
+              <i
+                class="fa-solid fa-seedling fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Penjual & Stock Bibit</h3>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <section class="halaman-direktori">
+          <h2 class="judul-halaman">Direktori Penjual & Bibit Kakao</h2>
+          <p class="sub-judul">
+            Cari dan hubungi penyedia bibit unggul terpercaya.
+          </p>
+
+          <div class="search-section">
+            <input
+              type="text"
+              id="cariLokasi"
+              placeholder="Cari nama bibit atau lokasi..."
+              class="search-input"
+            />
+            <button type="button" class="btn-primary" onclick="filterPenjual()">
+              Cari
+            </button>
+          </div>
+
+          <ul id="daftarPenjual" class="seller-list"></ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="../js/direktori.js"></script>
+    <script src="../js/auth.js"></script>
+  </body>
+</html>
