@@ -14,7 +14,10 @@
 
   <body>
     <header class="header">
-      <i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255); visibility: hidden"></i>
+      <i
+        class="fa-solid fa-bars fa-xl"
+        style="color: rgb(255, 255, 255); visibility: hidden"
+      ></i>
       <div class="logo">Tanam<span class="logop">Kakao</span></div>
       <div class="icon-profil">
         <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
@@ -30,23 +33,38 @@
         <nav class="nav">
           <div class="nav-upper-options">
             <a href="../Dashboard/index.html" class="nav-option">
-              <i class="fa-solid fa-house fa-lg" style="color: rgb(255, 255, 255)"></i>
+              <i
+                class="fa-solid fa-house fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
               <h3>Dashboard</h3>
             </a>
             <div class="nav-option">
-              <i class="fa-solid fa-robot fa-lg" style="color: rgb(255, 255, 255)"></i>
+              <i
+                class="fa-solid fa-robot fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
               <h3>Smart Seeding Matching</h3>
             </div>
             <a href="../kebun/kebun.html" class="nav-option">
-              <i class="fa-solid fa-trowel fa-lg" style="color: rgb(255, 255, 255)"></i>
+              <i
+                class="fa-solid fa-trowel fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
               <h3>Kebun Saya</h3>
             </a>
             <a href="jadwal.html" class="nav-option active-nav">
-              <i class="fa-regular fa-calendar-days fa-lg" style="color: rgb(255, 255, 255)"></i>
+              <i
+                class="fa-regular fa-calendar-days fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
               <h3>Jadwal Rawat</h3>
             </a>
             <a href="../Direktori/index.html" class="nav-option">
-              <i class="fa-solid fa-seedling fa-lg" style="color: rgb(255, 255, 255)"></i>
+              <i
+                class="fa-solid fa-seedling fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
               <h3>Penjual & Stock Bibit</h3>
             </a>
           </div>
@@ -55,23 +73,34 @@
 
       <main class="content">
         <section class="halaman-jadwal">
-          <header class="header-halaman" style="margin-bottom: 30px;">
+          <header class="header-halaman" style="margin-bottom: 30px">
             <h2 class="judul-halaman">Jadwal Rawat TBM Dinamis</h2>
-            <p class="sub-judul">Buat timeline otomatis perawatan Tanaman Belum Menghasilkan (TBM) Kakao.</p>
+            <p class="sub-judul">
+              Buat timeline otomatis perawatan Tanaman Belum Menghasilkan (TBM)
+              Kakao.
+            </p>
           </header>
 
           <div class="kartu-input">
             <div class="grup-input">
-              <label for="input-tanggal-tanam">Tanggal Penanaman Bibit Kakao:</label>
+              <label for="input-tanggal-tanam"
+                >Tanggal Penanaman Bibit Kakao:</label
+              >
               <input type="date" id="input-tanggal-tanam" required />
             </div>
-            <button class="btn-primary tombol-proses" onclick="buatJadwalPerawatan()">
+            <button
+              class="btn-primary tombol-proses"
+              onclick="buatJadwalPerawatan()"
+            >
               ✨ Buat Jadwal
             </button>
           </div>
 
           <div id="wadah-timeline-jadwal" class="garis-timeline">
-            <p class="pesan-kosong">Silakan masukkan tanggal tanam di atas untuk melihat linimasa perawatan kakao.</p>
+            <p class="pesan-kosong">
+              Silakan masukkan tanggal tanam di atas untuk melihat linimasa
+              perawatan kakao.
+            </p>
           </div>
         </section>
       </main>
