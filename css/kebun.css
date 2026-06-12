@@ -246,7 +246,7 @@
 }
 
 /* =========================================
-   7. FORM STYLES
+   7. FORM STYLES & SMART SEEDING
    ========================================= */
 #formBlok {
   padding: 20px;
@@ -282,7 +282,7 @@
   box-shadow: 0 0 0 3px rgba(104, 143, 78, 0.15);
 }
 
-/* Tombol Hitung & Input Terkunci */
+/* Tombol Hitung Rekomendasi */
 .btn-hitung {
   width: 100%;
   background-color: var(--third-color);
@@ -300,6 +300,8 @@
   background-color: var(--secondary-color);
   color: #fff;
 }
+
+/* Input Terkunci untuk Hasil Rekomendasi */
 .input-readonly {
   background-color: #f3f4f6 !important;
   color: var(--primary-color) !important;

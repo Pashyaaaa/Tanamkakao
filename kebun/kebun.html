@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div class="header">
+    <header class="header">
       <i
         class="fa-solid fa-bars fa-xl"
         style="color: rgb(255, 255, 255); visibility: hidden"
@@ -26,11 +26,11 @@
           <span>Keluar</span>
         </button>
       </div>
-    </div>
+    </header>
 
     <div class="main-container">
-      <div class="navcontainer">
-        <div class="nav">
+      <aside class="navcontainer">
+        <nav class="nav">
           <div class="nav-upper-options">
             <a href="../Dashboard/index.html" class="nav-option">
               <i
@@ -68,12 +68,12 @@
               <h3>Penjual & Stock Bibit</h3>
             </a>
           </div>
-        </div>
-      </div>
+        </nav>
+      </aside>
 
-      <div class="content">
+      <main class="content">
         <section class="halaman-kebun">
-          <div class="kebun-header-action">
+          <header class="kebun-header-action">
             <div>
               <h2 class="judul-halaman">Data Kebun Saya</h2>
               <p class="sub-judul">
@@ -84,10 +84,10 @@
             <button class="btn-tambah-blok" id="btnBukaModal">
               + Tambah Blok Lahan
             </button>
-          </div>
+          </header>
 
-          <div class="summary-grid">
-            <div class="summary-card">
+          <section class="summary-grid">
+            <article class="summary-card">
               <div
                 class="icon-wrap"
                 style="
@@ -101,8 +101,8 @@
                 <h4>Total Luas Lahan</h4>
                 <h2 id="totalLuas">0 <span>Hektar</span></h2>
               </div>
-            </div>
-            <div class="summary-card">
+            </article>
+            <article class="summary-card">
               <div
                 class="icon-wrap"
                 style="
@@ -116,8 +116,8 @@
                 <h4>Total Populasi Pohon</h4>
                 <h2 id="totalPohon">0 <span>Pohon</span></h2>
               </div>
-            </div>
-            <div class="summary-card">
+            </article>
+            <article class="summary-card">
               <div
                 class="icon-wrap"
                 style="
@@ -131,21 +131,21 @@
                 <h4>Total Blok Lahan</h4>
                 <h2 id="totalBlok">0 <span>Blok</span></h2>
               </div>
-            </div>
-          </div>
+            </article>
+          </section>
 
           <h3 class="section-title">Detail Blok Lahan</h3>
-          <div class="blok-grid" id="blokGrid"></div>
+          <section class="blok-grid" id="blokGrid"></section>
         </section>
-      </div>
+      </main>
     </div>
 
     <div class="modal-overlay" id="modalBlok">
       <div class="modal-content">
-        <div class="modal-header">
+        <header class="modal-header">
           <h3>Smart Seeding & Tambah Blok</h3>
           <button class="btn-close-modal" id="btnTutupModal">&times;</button>
-        </div>
+        </header>
         <form id="formBlok">
           <div class="form-group">
             <label for="namaBlok">Nama Blok Lahan</label>
@@ -187,7 +187,7 @@
           </div>
 
           <button type="button" class="btn-hitung" id="btnHitung">
-            ✨ Hitung Rekomendasi
+            Hitung Rekomendasi
           </button>
 
           <div class="form-group">
@@ -221,10 +221,10 @@
             </select>
           </div>
 
-          <div class="modal-footer">
+          <footer class="modal-footer">
             <button type="button" class="btn-batal" id="btnBatal">Batal</button>
             <button type="submit" class="btn-simpan">Simpan ke Dasbor</button>
-          </div>
+          </footer>
         </form>
       </div>
     </div>
