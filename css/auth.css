@@ -567,3 +567,78 @@ body {
     transition: none;
   }
 }
+
+/* ==============================================================
+   EFEK TRANSISI MULTI-LAYER WIPE (COLOR BLOCKS)
+   ============================================================== */
+.wipe-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+  overflow: hidden;
+}
+
+.wipe-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  will-change: transform;
+}
+
+.layer-1 {
+  background: var(--third-color);
+}
+.layer-2 {
+  background: var(--secondary-color);
+}
+.layer-3 {
+  background: var(--primary-color);
+}
+body.page-exit .layer-1 {
+  animation: wipeIn 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+body.page-exit .layer-2 {
+  animation: wipeIn 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0.15s forwards;
+}
+body.page-exit .layer-3 {
+  animation: wipeIn 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0.3s forwards;
+}
+
+body.page-enter .wipe-layer {
+  transform: translateX(0);
+}
+
+body.page-enter .layer-3 {
+  animation: wipeOut 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+body.page-enter .layer-2 {
+  animation: wipeOut 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0.15s forwards;
+}
+body.page-enter .layer-1 {
+  animation: wipeOut 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0.3s forwards;
+}
+
+@keyframes wipeIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes wipeOut {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -12,7 +12,12 @@
     />
     <link rel="stylesheet" href="../css/auth.css" />
   </head>
-  <body>
+  <body class="page-enter">
+    <div class="wipe-container">
+      <div class="wipe-layer layer-1"></div>
+      <div class="wipe-layer layer-2"></div>
+      <div class="wipe-layer layer-3"></div>
+    </div>
     <aside class="brand-panel">
       <a href="../index.html" class="brand-logo">
         <span class="logo-icon">🌱</span>
@@ -272,6 +277,33 @@
     <script src="../js/auth.js"></script>
     <script>
       redirectIfLoggedIn();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          document.body.classList.remove("page-enter");
+        }, 700);
+
+        document.addEventListener("click", (e) => {
+          const link = e.target.closest("a");
+
+          if (
+            link &&
+            link.href &&
+            !link.getAttribute("href").startsWith("#") &&
+            link.target !== "_blank" &&
+            link.hostname === window.location.hostname
+          ) {
+            e.preventDefault();
+            const targetUrl = link.href;
+
+            document.body.classList.add("page-exit");
+
+            setTimeout(() => {
+              window.location.href = targetUrl;
+            }, 800);
+          }
+        });
+      });
 
       const toggleBtn = document.getElementById("togglePw");
       const pwInput = document.getElementById("password");
