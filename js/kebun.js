@@ -1,38 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
   const KEBUN_KEY = "tanamkakao_kebun";
 
-  // 1. Fungsi mengambil data dari Local Storage
+  // 1. Fungsi Local Storage
   function getKebunData() {
     return JSON.parse(localStorage.getItem(KEBUN_KEY) || "[]");
   }
-
-  // 2. Fungsi menyimpan data ke Local Storage
   function saveKebunData(data) {
     localStorage.setItem(KEBUN_KEY, JSON.stringify(data));
   }
 
-  // 3. Fungsi utama untuk me-render antarmuka (UI)
+  // 2. Render UI Kebun
   function tampilkanKebun() {
     const kebunData = getKebunData();
     const wadahGrid = document.getElementById("blokGrid");
-
-    // Kosongkan area grid sebelum diisi ulang
     wadahGrid.innerHTML = "";
 
     let totalLuasLahan = 0;
     let totalPohonCount = 0;
 
-    // Looping data kebun untuk ditampilkan
     kebunData.forEach((blok, index) => {
-      // Kalkulasi akumulasi total
       totalLuasLahan += parseFloat(blok.luas);
       totalPohonCount += parseInt(blok.populasi);
 
-      // Pembuatan elemen kartu (card)
       const card = document.createElement("div");
       card.className = "blok-card";
-
-      // Penentuan warna badge status
       const badgeClass = blok.status === "Masa TM" ? "status-tm" : "status-tbm";
 
       card.innerHTML = `
@@ -51,11 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
           </button>
         </div>
       `;
-
       wadahGrid.appendChild(card);
     });
 
-    // 4. Update ringkasan angka di bagian paling atas
     document.getElementById("totalLuas").innerHTML =
       `${totalLuasLahan.toFixed(1)} <span>Hektar</span>`;
     document.getElementById("totalPohon").innerHTML =
@@ -64,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `${kebunData.length} <span>Blok</span>`;
   }
 
-  // 5. Fungsi hapus data (dijadikan global agar bisa diakses onclick di HTML)
+  // 3. Fungsi Hapus
   window.hapusBlok = function (index) {
     if (confirm("Apakah Anda yakin ingin menghapus blok lahan ini?")) {
       let kebunData = getKebunData();
@@ -74,50 +63,79 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // 6. Logika Modal Form Tambah Data
+  // 4. Modal Handler
   const modal = document.getElementById("modalBlok");
   const form = document.getElementById("formBlok");
 
-  function bukaModalForm() {
-    modal.style.display = "flex";
-  }
-  function tutupModalForm() {
-    modal.style.display = "none";
-    form.reset();
-  }
-
-  // Event Listeners untuk interaksi tombol modal
   document
     .getElementById("btnBukaModal")
-    .addEventListener("click", bukaModalForm);
-  document
-    .getElementById("btnTutupModal")
-    .addEventListener("click", tutupModalForm);
-  document.getElementById("btnBatal").addEventListener("click", tutupModalForm);
+    .addEventListener("click", () => (modal.style.display = "flex"));
+  document.getElementById("btnTutupModal").addEventListener("click", () => {
+    modal.style.display = "none";
+    form.reset();
+  });
+  document.getElementById("btnBatal").addEventListener("click", () => {
+    modal.style.display = "none";
+    form.reset();
+  });
 
-  // 7. Proses submit data form
+  // 5. FITUR: Kalkulator Rekomendasi Pintar (Smart Seeding)
+  document.getElementById("btnHitung").addEventListener("click", () => {
+    const luas = parseFloat(document.getElementById("luasBlok").value);
+    const jarakPerPohon = parseInt(document.getElementById("jarakTanam").value);
+    const mdpl = parseInt(document.getElementById("ketinggian").value);
+
+    // Validasi kosong
+    if (!luas || isNaN(mdpl)) {
+      alert("Harap isi Luas Lahan dan Ketinggian MDPL terlebih dahulu!");
+      return;
+    }
+
+    // Hitung Populasi (1 Hektar = 10.000 meter persegi)
+    const totalMeterPersegi = luas * 10000;
+    const estimasiPopulasi = Math.floor(totalMeterPersegi / jarakPerPohon);
+
+    // Penentuan Varietas berdasarkan Ketinggian
+    let rekomendasiVarietas = "";
+    if (mdpl < 400) {
+      rekomendasiVarietas = "ICCRI 03 (Dataran Rendah)";
+    } else if (mdpl <= 700) {
+      rekomendasiVarietas = "Sulawesi 1 (Dataran Menengah)";
+    } else {
+      rekomendasiVarietas = "Klon MCC 02 (Dataran Tinggi)";
+    }
+
+    // Tampilkan hasil di form readonly
+    document.getElementById("populasi").value = estimasiPopulasi;
+    document.getElementById("varietas").value = rekomendasiVarietas;
+  });
+
+  // 6. Simpan Form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Tangkap data dari inputan user
+    // Validasi jika user lupa klik Hitung Rekomendasi
+    if (document.getElementById("varietas").value === "") {
+      alert("Silakan klik tombol 'Hitung Rekomendasi' terlebih dahulu!");
+      return;
+    }
+
     const baru = {
       nama: document.getElementById("namaBlok").value.trim(),
-      varietas: document.getElementById("varietas").value.trim(),
+      varietas: document.getElementById("varietas").value,
       populasi: document.getElementById("populasi").value,
       luas: document.getElementById("luasBlok").value,
       status: document.getElementById("status").value,
     };
 
-    // Ambil data lama, tambahkan data baru, lalu simpan kembali
     const kebunData = getKebunData();
     kebunData.push(baru);
     saveKebunData(kebunData);
 
-    // Sembunyikan form dan perbarui tampilan web
-    tutupModalForm();
+    modal.style.display = "none";
+    form.reset();
     tampilkanKebun();
   });
 
-  // Panggil fungsi render pertama kali saat web dibuka
   tampilkanKebun();
 });
