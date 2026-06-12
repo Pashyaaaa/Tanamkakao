@@ -9,7 +9,7 @@
 
 <body>
   <!-- HEADER -->
-  <div class="header">
+  <header class="header">
     <i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255); visibility: hidden;"></i>
     <div class="logo">Tanam<span class="logop">Kakao</span></div>
 
@@ -20,27 +20,25 @@
         <span>Keluar</span>
       </button>
     </div>
-  </div>
+  </header>
   <!-- END HEADER -->
 
-  <div class="main-container">
+  <!-- MAIN SECTION -->
+  <main class="main-container">
     <div class="navcontainer">
       <!-- SIDEBAR NAV -->
-      <div class="nav">
+      <nav class="nav">
         <div class="nav-upper-options">
-          <div class="nav-option">
+          <a href="../Dashboard/index.html" class="nav-option">
             <i class="fa-solid fa-house fa-lg" style="color: rgb(255, 255, 255);"></i>
             <h3>Dashboard</h3>
-          </div>
+          </a>
           <div class="nav-option">
             <i class="fa-solid fa-robot fa-lg" style="color: rgb(255, 255, 255);"></i>
             <h3>Smart Seeding Matching</h3>
           </div>
           <a href="../kebun/kebun.html" class="nav-option">
-            <i
-              class="fa-solid fa-trowel fa-lg"
-              style="color: rgb(255, 255, 255)"
-            ></i>
+            <i class="fa-solid fa-trowel fa-lg" style="color: rgb(255, 255, 255)"></i>
             <h3>Kebun Saya</h3>
           </a>
           <div class="nav-option">
@@ -48,18 +46,15 @@
             <h3>Jadwal Rawat</h3>
           </div>
           <a href="../Direktori/index.html" class="nav-option">
-            <i
-              class="fa-solid fa-seedling fa-lg"
-              style="color: rgb(255, 255, 255)"
-            ></i>
+            <i class="fa-solid fa-seedling fa-lg" style="color: rgb(255, 255, 255)"></i>
             <h3>Penjual & Stock Bibit</h3>
           </a>
         </div>
-      </div>
+      </nav>
     </div>
     <!-- END SIDEBAR NAV -->
 
-    <!-- MAIN CONTENT -->
+    <!-- CONTENT -->
     <div class="content">
       <section class="halaman-dashboard">
         <h2 class="judul-halaman">Selamat Datang, Petani Cerdas!</h2>
@@ -67,33 +62,160 @@
 
         <div class="grid">
           <div class="card price-card">
-            <h4 class="label-card">Harga Kakao Fermentasi</h4>
-            <h2 class="value-card">Rp 48.500 <span class="unit-card">/kg</span></h2>
+            <div class="icon-box">
+              <i class="fa-solid fa-tags"></i>
+            </div>
+            <div class="card-content">
+              <h4 class="label-card">Harga Kakao Fermentasi</h4>
+              <h2 class="value-card">Rp 48.500 <span class="unit-card">/kg</span></h2>
+            </div>
           </div>
           <div class="card weather-card">
-            <h4 class="label-card">Cuaca Area Sentra</h4>
-            <h2 class="value-card">Hujan Ringan</h2>
+            <div class="icon-box">
+              <i class="fa-solid fa-cloud-sun-rain"></i>
+            </div>
+            <div class="card-content">
+              <h4 class="label-card">Cuaca Area Sentra</h4>
+              <h2 class="value-card">Hujan Ringan</h2>
+            </div>
           </div>
           <div class="card task-card">
-            <h4 class="label-task-card">Tugas Bulan Ini</h4>
-            <h2 class="value-card">1x Pemupukan Dasar</span></h2>
+            <div class="icon-box">
+              <i class="fa-solid fa-clipboard-list"></i>
+            </div>
+            <div class="card-content">
+              <h4 class="label-task-card">Tugas Bulan Ini</h4>
+              <h2 class="value-card">2 Kegiatan</h2>
+            </div>
           </div>
         </div>
 
-        <div class="card">
-          <div class="title-card">Berita & Tips Pertanian</div>
+        <div class="card news">
+
+          <div class="news-header">
+            <div class="news-title-text">Berita &amp; Tips Pertanian</div>
+            <div class="news-filter" role="group" aria-label="Filter berita">
+              <button class="filter-btn active" data-cat="semua">Semua</button>
+              <button class="filter-btn" data-cat="tips">Tips</button>
+              <button class="filter-btn" data-cat="harga">Harga</button>
+              <button class="filter-btn" data-cat="info">Info</button>
+            </div>
+          </div>
+
+          <div class="news-divider"></div>
+
+          <!-- Berita Utama -->
+          <div class="news-featured" id="news-featured" data-cat="harga">
+            <div class="news-featured-icon">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+            <div class="news-featured-body">
+              <span class="news-featured-badge">HARGA TERKINI</span>
+              <div class="news-featured-headline">
+                Harga kakao fermentasi naik 3% minggu ini — didorong lonjakan permintaan ekspor ke Eropa jelang musim
+                liburan
+              </div>
+              <div class="news-featured-meta">
+                <span><i class="fa-regular fa-calendar"></i> 12 Jun 2025</span>
+                <span><i class="fa-solid fa-building-columns"></i> Kementan RI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Daftar Berita -->
+          <ul class="news-list" id="news-list" aria-label="Daftar berita">
+
+            <li class="news-item" data-cat="tips">
+              <span class="news-badge b-tips">TIPS</span>
+              <div class="news-content">
+                <div class="news-headline">Cara mendeteksi busuk buah (Phytophthora) sejak dini sebelum menyebar ke
+                  seluruh blok kebun</div>
+                <div class="news-meta">
+                  <span>10 Jun 2025</span>
+                  <span class="news-dot"></span>
+                  <span>BBPPTP Surabaya</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right news-arrow" aria-hidden="true"></i>
+            </li>
+
+            <li class="news-item" data-cat="info">
+              <span class="news-badge b-info">INFO</span>
+              <div class="news-content">
+                <div class="news-headline">Subsidi pupuk organik untuk petani kakao Jawa Timur dibuka kembali Juli 2025
+                  — daftar sekarang</div>
+                <div class="news-meta">
+                  <span>9 Jun 2025</span>
+                  <span class="news-dot"></span>
+                  <span>Dinas Pertanian Jatim</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right news-arrow" aria-hidden="true"></i>
+            </li>
+
+            <li class="news-item" data-cat="tips">
+              <span class="news-badge b-tips">TIPS</span>
+              <div class="news-content">
+                <div class="news-headline">Jadwal pemangkasan di musim hujan untuk menjaga sirkulasi udara dan
+                  meningkatkan hasil buah</div>
+                <div class="news-meta">
+                  <span>7 Jun 2025</span>
+                  <span class="news-dot"></span>
+                  <span>TanamKakao Editorial</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right news-arrow" aria-hidden="true"></i>
+            </li>
+
+            <li class="news-item" data-cat="warn">
+              <span class="news-badge b-warn">PERINGATAN</span>
+              <div class="news-content">
+                <div class="news-headline">Waspada serangan hama PBK meningkat saat curah hujan tinggi — lakukan
+                  sanitasi lahan segera</div>
+                <div class="news-meta">
+                  <span>5 Jun 2025</span>
+                  <span class="news-dot"></span>
+                  <span>Balitbangtan</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right news-arrow" aria-hidden="true"></i>
+            </li>
+
+            <li class="news-item" data-cat="harga">
+              <span class="news-badge b-harga">HARGA</span>
+              <div class="news-content">
+                <div class="news-headline">Proyeksi harga kakao dunia Q3 2025 — analis prediksi bertahan di kisaran USD
+                  8.200/ton</div>
+                <div class="news-meta">
+                  <span>3 Jun 2025</span>
+                  <span class="news-dot"></span>
+                  <span>ICCO Report</span>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right news-arrow" aria-hidden="true"></i>
+            </li>
+
+          </ul>
+
+          <div class="news-footer">
+            <a href="#" class="news-lihat-semua">
+              Lihat semua berita <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
         </div>
       </section>
     </div>
-  </div>
-  <!-- END MAIN CONTENT -->
+    <!-- END CONTENT -->
+  </main>
+  <!-- END MAIN SECTION -->
 
   <script src="https://kit.fontawesome.com/26baa55295.js" crossorigin="anonymous"></script>
   <script src="../js/auth.js"></script>
   <script>
     requireAuth();
   </script>
-  <script src="js/index.js"></script>
+  <script src="../js/dashboard.js"></script>
 </body>
 
 </html>
