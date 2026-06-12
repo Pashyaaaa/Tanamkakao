@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>TanamKakao - Panduan Digital</title>
+    <link rel="stylesheet" href="../css/seed.css" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255); visibility: hidden;"></i>
+        <div class="logo">Tanam<span class="logop">Kakao</span></div>
+
+        <div class="icon-profil">
+            <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255);"></i>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Keluar</span>
+            </button>
+        </div>
+    </header>
+    <!-- END HEADER -->
+
+    <!-- MAIN SECTION -->
+    <main class="main-container">
+        <div class="navcontainer">
+            <!-- SIDEBAR NAV -->
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <a href="../Dashboard/index.html" class="nav-option">
+                        <i class="fa-solid fa-house fa-lg" style="color: rgb(255, 255, 255);"></i>
+                        <h3>Dashboard</h3>
+                    </a>
+                    <a href="../SmartSeed/seeding.html" class="nav-option">
+                        <i class="fa-solid fa-robot fa-lg" style="color: rgb(255, 255, 255);"></i>
+                        <h3>Smart Seeding</h3>
+                    </a>
+                    <a href="../kebun/kebun.html" class="nav-option">
+                        <i class="fa-solid fa-trowel fa-lg" style="color: rgb(255, 255, 255)"></i>
+                        <h3>Kebun Saya</h3>
+                    </a>
+                    <a href="../Jadwal/Jadwal.html" class="nav-option">
+                        <i class="fa-regular fa-calendar-days fa-lg" style="color: rgb(255, 255, 255)"></i>
+                        <h3>Jadwal Rawat</h3>
+                    </a>
+                    <a href="../Direktori/index.html" class="nav-option">
+                        <i class="fa-solid fa-seedling fa-lg" style="color: rgb(255, 255, 255)"></i>
+                        <h3>Penjual & Stock Bibit</h3>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <!-- END SIDEBAR NAV -->
+
+        <!-- CONTENT -->
+
+        <!-- END CONTENT -->
+    </main>
+    <!-- END MAIN SECTION -->
+
+    <script src="https://kit.fontawesome.com/26baa55295.js" crossorigin="anonymous"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        requireAuth();
+    </script>
+    <script src="../js/dashboard.js"></script>
+</body>
+
+</html>

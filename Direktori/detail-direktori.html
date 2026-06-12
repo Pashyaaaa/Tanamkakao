@@ -1,120 +1,92 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail Penjual - TanamKakao</title>
-    <link rel="stylesheet" href="../css/dashboard.css" />
-    <link rel="stylesheet" href="../css/direktori.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <div class="header">
-      <i
-        class="fa-solid fa-bars fa-xl"
-        style="color: rgb(255, 255, 255); visibility: hidden"
-      ></i>
-      <div class="logo">Tanam<span class="logop">Kakao</span></div>
-      <div class="icon-profil">
-        <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
-        <button class="logout-btn" onclick="logout()">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          <span>Keluar</span>
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Penjual - TanamKakao</title>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/direktori.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="header">
+    <i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255); visibility: hidden"></i>
+    <div class="logo">Tanam<span class="logop">Kakao</span></div>
+    <div class="icon-profil">
+      <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
+      <button class="logout-btn" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Keluar</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="navcontainer">
+      <div class="nav">
+        <div class="nav-upper-options">
+          <a href="../Dashboard/index.html" class="nav-option">
+            <i class="fa-solid fa-house fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="../" class="nav-option">
+            <i class="fa-solid fa-robot fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Smart Seeding</h3>
+          </a>
+          <a href="../kebun/kebun.html" class="nav-option">
+            <i class="fa-solid fa-trowel fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Kebun Saya</h3>
+          </a>
+          <a href="../Jadwal/Jadwal.html" class="nav-option">
+            <i class="fa-regular fa-calendar-days fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Jadwal Rawat</h3>
+          </a>
+          <a href="../Direktori/index.html" class="nav-option">
+            <i class="fa-solid fa-seedling fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Penjual & Stock Bibit</h3>
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="main-container">
-      <div class="navcontainer">
-        <div class="nav">
-          <div class="nav-upper-options">
-            <a href="../Dashboard/index.html" class="nav-option">
-              <i
-                class="fa-solid fa-house fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Dashboard</h3>
-            </a>
-            <a href="../" class="nav-option">
-              <i
-                class="fa-solid fa-robot fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Smart Seeding Matching</h3>
-            </a>
-            <a href="../kebun/kebun.html" class="nav-option">
-              <i
-                class="fa-solid fa-trowel fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Kebun Saya</h3>
-            </a>
-            <a href="../Jadwal/Jadwal.html" class="nav-option">
-              <i
-                class="fa-regular fa-calendar-days fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Jadwal Rawat</h3>
-            </a>
-            <a href="../Direktori/index.html" class="nav-option">
-              <i
-                class="fa-solid fa-seedling fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Penjual & Stock Bibit</h3>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="content">
-        <section class="halaman-detail">
-          <nav>
-            <a
-              href="index.html"
-              style="
+    <div class="content">
+      <section class="halaman-detail">
+        <nav>
+          <a href="index.html" style="
                 color: var(--primary-color);
                 text-decoration: none;
                 font-weight: 600;
-              "
-              >← Kembali ke Direktori</a
-            >
-          </nav>
+              ">← Kembali ke Direktori</a>
+        </nav>
 
-          <h1 id="namaPenjual" class="detail-title" style="margin-top: 15px">
-            Memuat...
-          </h1>
+        <h1 id="namaPenjual" class="detail-title" style="margin-top: 15px">
+          Memuat...
+        </h1>
 
-          <div class="detail-card">
-            <p><strong>Lokasi:</strong> <span id="lokasiPenjual"></span></p>
-            <p><strong>Kontak:</strong> <span id="kontakPenjual"></span></p>
-            <p>
-              <strong>Stok Tersedia:</strong> <span id="stokPenjual"></span>
-            </p>
-            <p>
-              <strong>Deskripsi:</strong> <span id="deskripsiPenjual"></span>
-            </p>
-            <img
-              id="imgPenjual"
-              src=""
-              alt="Bibit Kakao"
-              style="
+        <div class="detail-card">
+          <p><strong>Lokasi:</strong> <span id="lokasiPenjual"></span></p>
+          <p><strong>Kontak:</strong> <span id="kontakPenjual"></span></p>
+          <p>
+            <strong>Stok Tersedia:</strong> <span id="stokPenjual"></span>
+          </p>
+          <p>
+            <strong>Deskripsi:</strong> <span id="deskripsiPenjual"></span>
+          </p>
+          <img id="imgPenjual" src="" alt="Bibit Kakao" style="
                 width: 100%;
                 max-width: 300px;
                 border-radius: 8px;
                 margin-top: 15px;
-              "
-            />
-          </div>
-        </section>
-      </div>
+              " />
+        </div>
+      </section>
     </div>
+  </div>
 
-    <script src="../js/detail-direktori.js"></script>
-    <script src="../js/auth.js"></script>
-  </body>
+  <script src="../js/detail-direktori.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+
 </html>
