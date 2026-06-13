@@ -1,182 +1,227 @@
 <!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kebun Saya - TanamKakao</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/kebun.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kebun Saya - TanamKakao</title>
-  <link rel="stylesheet" href="../css/dashboard.css" />
-  <link rel="stylesheet" href="../css/kebun.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
+  <body>
+    <header class="header">
+      <i
+        class="fa-solid fa-bars fa-xl"
+        style="color: rgb(255, 255, 255); visibility: hidden"
+      ></i>
+      <div class="logo">Tanam<span class="logop">Kakao</span></div>
+      <div class="icon-profil">
+        <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
+        <button class="logout-btn" onclick="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Keluar</span>
+        </button>
+      </div>
+    </header>
 
-<body>
-  <header class="header">
-    <i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255); visibility: hidden"></i>
-    <div class="logo">Tanam<span class="logop">Kakao</span></div>
-    <div class="icon-profil">
-      <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
-      <button class="logout-btn" onclick="logout()">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <span>Keluar</span>
-      </button>
-    </div>
-  </header>
-
-  <div class="main-container">
-    <aside class="navcontainer">
-      <nav class="nav">
-        <div class="nav-upper-options">
-          <a href="../Dashboard/index.html" class="nav-option">
-            <i class="fa-solid fa-house fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Dashboard</h3>
-          </a>
-          <a href="smart" class="nav-option">
-            <i class="fa-solid fa-robot fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Smart Seeding</h3>
-          </a>
-          <a href="kebun.html" class="nav-option">
-            <i class="fa-solid fa-trowel fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Kebun Saya</h3>
-          </a>
-          <a href="../Jadwal/Jadwal.html" class="nav-option">
-            <i class="fa-regular fa-calendar-days fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Jadwal Rawat</h3>
-          </a>
-          <a href="../Direktori/index.html" class="nav-option">
-            <i class="fa-solid fa-seedling fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Penjual & Stock Bibit</h3>
-          </a>
-        </div>
-      </nav>
-    </aside>
-
-    <main class="content">
-      <section class="halaman-kebun">
-        <header class="kebun-header-action">
-          <div>
-            <h2 class="judul-halaman">Data Kebun Saya</h2>
-            <p class="sub-judul">
-              Pantau luas lahan, total pohon, dan status pertumbuhan kakao
-              Anda.
-            </p>
+    <div class="main-container">
+      <aside class="navcontainer">
+        <nav class="nav">
+          <div class="nav-upper-options">
+            <a href="../Dashboard/index.html" class="nav-option">
+              <i
+                class="fa-solid fa-house fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Dashboard</h3>
+            </a>
+            <a href="smart" class="nav-option">
+              <i
+                class="fa-solid fa-robot fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Smart Seeding</h3>
+            </a>
+            <a href="kebun.html" class="nav-option">
+              <i
+                class="fa-solid fa-trowel fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Kebun Saya</h3>
+            </a>
+            <a href="../Jadwal/Jadwal.html" class="nav-option">
+              <i
+                class="fa-regular fa-calendar-days fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Jadwal Rawat</h3>
+            </a>
+            <a href="../Direktori/index.html" class="nav-option">
+              <i
+                class="fa-solid fa-seedling fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Penjual & Stock Bibit</h3>
+            </a>
           </div>
-          <button class="btn-tambah-blok" id="btnBukaModal">
-            + Tambah Blok Lahan
-          </button>
-        </header>
+        </nav>
+      </aside>
 
-        <section class="summary-grid">
-          <article class="summary-card">
-            <div class="icon-wrap" style="
+      <main class="content">
+        <section class="halaman-kebun">
+          <header class="kebun-header-action">
+            <div>
+              <h2 class="judul-halaman">Data Kebun Saya</h2>
+              <p class="sub-judul">
+                Pantau luas lahan, total pohon, dan status pertumbuhan kakao
+                Anda.
+              </p>
+            </div>
+            <button class="btn-tambah-blok" id="btnBukaModal">
+              + Tambah Blok Lahan
+            </button>
+          </header>
+
+          <section class="summary-grid">
+            <article class="summary-card">
+              <div
+                class="icon-wrap"
+                style="
                   background: rgba(104, 143, 78, 0.15);
                   color: var(--secondary-color);
-                ">
-              <i class="fa-solid fa-map-location-dot"></i>
-            </div>
-            <div class="summary-info">
-              <h4>Total Luas Lahan</h4>
-              <h2 id="totalLuas">0 <span>Hektar</span></h2>
-            </div>
-          </article>
-          <article class="summary-card">
-            <div class="icon-wrap" style="
+                "
+              >
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <div class="summary-info">
+                <h4>Total Luas Lahan</h4>
+                <h2 id="totalLuas">0 <span>Hektar</span></h2>
+              </div>
+            </article>
+            <article class="summary-card">
+              <div
+                class="icon-wrap"
+                style="
                   background: rgba(43, 70, 60, 0.15);
                   color: var(--primary-color);
-                ">
-              <i class="fa-solid fa-tree"></i>
-            </div>
-            <div class="summary-info">
-              <h4>Total Populasi Pohon</h4>
-              <h2 id="totalPohon">0 <span>Pohon</span></h2>
-            </div>
-          </article>
-          <article class="summary-card">
-            <div class="icon-wrap" style="
+                "
+              >
+                <i class="fa-solid fa-tree"></i>
+              </div>
+              <div class="summary-info">
+                <h4>Total Populasi Pohon</h4>
+                <h2 id="totalPohon">0 <span>Pohon</span></h2>
+              </div>
+            </article>
+            <article class="summary-card">
+              <div
+                class="icon-wrap"
+                style="
                   background: rgba(255, 128, 0, 0.15);
                   color: var(--one-time-use);
-                ">
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-            <div class="summary-info">
-              <h4>Total Blok Lahan</h4>
-              <h2 id="totalBlok">0 <span>Blok</span></h2>
-            </div>
-          </article>
+                "
+              >
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div class="summary-info">
+                <h4>Total Blok Lahan</h4>
+                <h2 id="totalBlok">0 <span>Blok</span></h2>
+              </div>
+            </article>
+          </section>
+
+          <h3 class="section-title">Detail Blok Lahan</h3>
+          <section class="blok-grid" id="blokGrid"></section>
         </section>
+      </main>
+    </div>
 
-        <h3 class="section-title">Detail Blok Lahan</h3>
-        <section class="blok-grid" id="blokGrid"></section>
-      </section>
-    </main>
-  </div>
-
-  <div class="modal-overlay" id="modalBlok">
-    <div class="modal-content">
-      <header class="modal-header">
-        <h3>Smart Seeding & Tambah Blok</h3>
-        <button class="btn-close-modal" id="btnTutupModal">&times;</button>
-      </header>
-      <form id="formBlok">
-        <div class="form-group">
-          <label for="namaBlok">Nama Blok Lahan</label>
-          <input type="text" id="namaBlok" placeholder="Contoh: Blok A (Utara)" required />
-        </div>
-
-        <div class="form-row-custom">
-          <div class="form-group" style="flex: 1">
-            <label for="luasBlok">Luas (Hektar)</label>
-            <input type="number" step="0.1" id="luasBlok" placeholder="Contoh: 1.5" required />
+    <div class="modal-overlay" id="modalBlok">
+      <div class="modal-content">
+        <header class="modal-header">
+          <h3>Tambah Kebun</h3>
+          <button class="btn-close-modal" id="btnTutupModal">&times;</button>
+        </header>
+        <form id="formBlok">
+          <div class="form-group">
+            <label for="namaBlok">Nama Blok Lahan</label>
+            <input
+              type="text"
+              id="namaBlok"
+              placeholder="Contoh: Blok A (Utara)"
+              required
+            />
           </div>
-          <div class="form-group" style="flex: 1">
-            <label for="jarakTanam">Jarak Tanam</label>
-            <select id="jarakTanam" required>
-              <option value="9">3 x 3 Meter</option>
-              <option value="16">4 x 4 Meter</option>
+
+          <div class="form-row-custom">
+            <div class="form-group" style="flex: 1">
+              <label for="luasBlok">Luas (Hektar)</label>
+              <input
+                type="number"
+                step="0.1"
+                id="luasBlok"
+                placeholder="Contoh: 1.5"
+                required
+              />
+            </div>
+            <div class="form-group" style="flex: 1">
+              <label for="jarakTanam">Jarak Tanam</label>
+              <select id="jarakTanam" required>
+                <option value="9">3 x 3 Meter</option>
+                <option value="16">4 x 4 Meter</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex: 1">
+              <label for="ketinggian">Ketinggian (MDPL)</label>
+              <input
+                type="number"
+                id="ketinggian"
+                placeholder="Contoh: 300"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="button" class="btn-hitung" id="btnHitung">
+            Hitung Rekomendasi
+          </button>
+
+          <div class="form-group">
+            <label for="populasi">Estimasi Jumlah Pohon</label>
+            <input
+              type="number"
+              id="populasi"
+              class="input-readonly"
+              readonly
+              placeholder="Klik hitung rekomendasi..."
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="status">Status Pertumbuhan Saat Ini</label>
+            <select id="status">
+              <option value="Masa TBM">Baru Tanam (Masa TBM)</option>
+              <option value="Masa TM">Sudah Berbuah (Masa TM)</option>
             </select>
           </div>
-          <div class="form-group" style="flex: 1">
-            <label for="ketinggian">Ketinggian (MDPL)</label>
-            <input type="number" id="ketinggian" placeholder="Contoh: 300" required />
-          </div>
-        </div>
 
-        <button type="button" class="btn-hitung" id="btnHitung">
-          Hitung Rekomendasi
-        </button>
-
-        <div class="form-group">
-          <label for="varietas">Rekomendasi Varietas Bibit</label>
-          <input type="text" id="varietas" class="input-readonly" readonly placeholder="Klik hitung rekomendasi..."
-            required />
-        </div>
-        <div class="form-group">
-          <label for="populasi">Estimasi Jumlah Pohon</label>
-          <input type="number" id="populasi" class="input-readonly" readonly placeholder="Klik hitung rekomendasi..."
-            required />
-        </div>
-
-        <div class="form-group">
-          <label for="status">Status Pertumbuhan Saat Ini</label>
-          <select id="status">
-            <option value="Masa TBM">Baru Tanam (Masa TBM)</option>
-            <option value="Masa TM">Sudah Berbuah (Masa TM)</option>
-          </select>
-        </div>
-
-        <footer class="modal-footer">
-          <button type="button" class="btn-batal" id="btnBatal">Batal</button>
-          <button type="submit" class="btn-simpan">Simpan ke Dasbor</button>
-        </footer>
-      </form>
+          <footer class="modal-footer">
+            <button type="button" class="btn-batal" id="btnBatal">Batal</button>
+            <button type="submit" class="btn-simpan">Simpan ke Dasbor</button>
+          </footer>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <script src="../js/auth.js"></script>
-  <script>
-    requireAuth();
-  </script>
-  <script src="../js/kebun.js"></script>
-</body>
-
+    <script src="../js/auth.js"></script>
+    <script>
+      requireAuth();
+    </script>
+    <script src="../js/kebun.js"></script>
+  </body>
 </html>

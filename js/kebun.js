@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="status-badge ${badgeClass}">${blok.status}</span>
         </header>
         <div class="blok-body">
-          <p><strong>Varietas:</strong> <span>${blok.varietas}</span></p>
           <p><strong>Populasi:</strong> <span>${blok.populasi} Pohon</span></p>
           <p><strong>Luas Blok:</strong> <span>${blok.luas} Ha</span></p>
         </div>
@@ -110,19 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalMeterPersegi = luas * 10000;
     const estimasiPopulasi = Math.floor(totalMeterPersegi / jarakPerPohon);
 
-    // Logika Penentuan Varietas Berdasarkan Ketinggian (MDPL)
-    let rekomendasiVarietas = "";
-    if (mdpl < 400) {
-      rekomendasiVarietas = "ICCRI 03 (Dataran Rendah)";
-    } else if (mdpl <= 700) {
-      rekomendasiVarietas = "Sulawesi 1 (Dataran Menengah)";
-    } else {
-      rekomendasiVarietas = "Klon MCC 02 (Dataran Tinggi)";
-    }
-
     // Suntikkan hasil ke dalam form (readonly)
     document.getElementById("populasi").value = estimasiPopulasi;
-    document.getElementById("varietas").value = rekomendasiVarietas;
   });
 
   // =========================================
@@ -132,9 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     // Validasi pencegahan jika user lupa klik tombol Hitung Rekomendasi
-    if (document.getElementById("varietas").value === "") {
+    if (document.getElementById("populasi").value === "") {
       alert(
-        "Silakan klik tombol '✨ Hitung Rekomendasi' terlebih dahulu untuk mendapatkan estimasi varietas dan populasi!",
+        "Silakan klik tombol 'Hitung Rekomendasi' terlebih dahulu untuk mendapatkan estimasi populasi!",
       );
       return;
     }
@@ -142,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Ambil semua value dari form
     const baru = {
       nama: document.getElementById("namaBlok").value.trim(),
-      varietas: document.getElementById("varietas").value,
       populasi: document.getElementById("populasi").value,
       luas: document.getElementById("luasBlok").value,
       status: document.getElementById("status").value,
