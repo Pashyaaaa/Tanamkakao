@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const KEBUN_KEY = "tanamkakao_kebun";
 
-  // =========================================
-  // 1. FUNGSI PENYIMPANAN (LOCAL STORAGE)
-  // =========================================
   function getKebunData() {
     return JSON.parse(localStorage.getItem(KEBUN_KEY) || "[]");
   }
@@ -12,20 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem(KEBUN_KEY, JSON.stringify(data));
   }
 
-  // =========================================
-  // 2. FUNGSI RENDER TAMPILAN KE LAYAR
-  // =========================================
   function tampilkanKebun() {
     const kebunData = getKebunData();
     const wadahGrid = document.getElementById("blokGrid");
 
-    // Kosongkan grid sebelum dirender ulang
     wadahGrid.innerHTML = "";
 
     let totalLuasLahan = 0;
     let totalPohonCount = 0;
 
-    // Render setiap kartu blok lahan
     kebunData.forEach((blok, index) => {
       totalLuasLahan += parseFloat(blok.luas || 0);
       totalPohonCount += parseInt(blok.populasi || 0);
@@ -59,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
       wadahGrid.appendChild(card);
     });
 
-    // Perbarui angka ringkasan di atas
     document.getElementById("totalLuas").innerHTML =
       `${totalLuasLahan.toFixed(1)} <span>Hektar</span>`;
     document.getElementById("totalPohon").innerHTML =
@@ -68,9 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
       `${kebunData.length} <span>Blok</span>`;
   }
 
-  // =========================================
-  // 3. FUNGSI HAPUS DATA BLOK
-  // =========================================
   window.hapusBlok = function (index) {
     if (confirm("Apakah Anda yakin ingin menghapus data kebun ini?")) {
       let kebunData = getKebunData();
@@ -80,16 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // =========================================
-  // 4. FUNGSI EDIT DATA BLOK
-  // =========================================
   window.editBlok = function (index) {
     const kebunData = getKebunData();
     const data = kebunData[index];
 
     if (!data) return;
 
-    // Isi data ke form modal
     document.getElementById("editIndex").value = index;
     document.getElementById("namaBlok").value = data.nama;
     document.getElementById("luasBlok").value = data.luas;
@@ -102,17 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("phTanah").value = data.phTanah || "";
     document.getElementById("status").value = data.status;
 
-    // Ubah judul modal dan teks tombol simpan
     document.getElementById("modalTitle").innerText = "Edit Kebun";
     document.getElementById("btnSimpan").innerText = "Perbarui Kebun";
 
-    // Buka modal
     modal.style.display = "flex";
   };
 
-  // =========================================
-  // 5. KONTROL MODAL FORM & RESET
-  // =========================================
   const modal = document.getElementById("modalBlok");
   const form = document.getElementById("formBlok");
 
@@ -138,35 +117,25 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("btnBatal")
     .addEventListener("click", tutupDanResetModal);
 
-  // =========================================
-  // 6. ALGORITMA REKOMENDASI PINTAR
-  // =========================================
   document.getElementById("btnHitung").addEventListener("click", () => {
     const luas = parseFloat(document.getElementById("luasBlok").value);
     const jarakPerPohon = parseInt(document.getElementById("jarakTanam").value);
     const mdpl = parseInt(document.getElementById("ketinggian").value);
 
-    // Validasi kosong
     if (!luas || isNaN(mdpl)) {
       alert("Harap isi Luas Lahan dan Ketinggian MDPL terlebih dahulu!");
       return;
     }
 
-    // Kalkulasi Populasi (1 Hektar = 10.000 meter persegi)
     const totalMeterPersegi = luas * 10000;
     const estimasiPopulasi = Math.floor(totalMeterPersegi / jarakPerPohon);
 
-    // Suntikkan hasil ke dalam form (readonly)
     document.getElementById("populasi").value = estimasiPopulasi;
   });
 
-  // =========================================
-  // 7. SUBMIT DATA KE DASBOR (TAMBAH & EDIT)
-  // =========================================
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Validasi pencegahan jika user lupa klik tombol Hitung Rekomendasi
     if (document.getElementById("populasi").value === "") {
       alert(
         "Silakan klik tombol 'Hitung Rekomendasi' terlebih dahulu untuk mendapatkan estimasi populasi!",
@@ -174,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Ambil data pengisian form objek baru
     const dataBaru = {
       nama: document.getElementById("namaBlok").value.trim(),
       luas: document.getElementById("luasBlok").value,
@@ -192,10 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const editIndex = parseInt(document.getElementById("editIndex").value);
 
     if (editIndex === -1) {
-      // MODE TAMBAH BARU
       kebunData.push(dataBaru);
     } else {
-      // MODE EDIT DATA LAMA
       kebunData[editIndex] = dataBaru;
     }
 
@@ -204,43 +170,40 @@ document.addEventListener("DOMContentLoaded", () => {
     tampilkanKebun();
   });
 
-  // Panggil fungsi render saat halaman pertama kali dibuka
   tampilkanKebun();
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  const currentPath = window.location.pathname; 
-  const navLinks = document.querySelectorAll('.nav-option');
+document.addEventListener("DOMContentLoaded", function () {
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll(".nav-option");
 
-  navLinks.forEach(link => {
-    // 1. Hapus class active dari semua link untuk berjaga-jaga jika ada yang "nyangkut" dari HTML
-    link.classList.remove('active');
-
-    // 2. Ekstrak pathname yang bersih dari URL link navigasi
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
     const linkPath = new URL(link.href, window.location.origin).pathname;
-
-    // 3. Jika path saat ini sama dengan path pada link, aktifkan class-nya!
-    if (currentPath === linkPath || currentPath.endsWith(link.getAttribute('href').replace('../', ''))) {
-      link.classList.add('active');
+    if (
+      currentPath === linkPath ||
+      currentPath.endsWith(link.getAttribute("href").replace("../", ""))
+    ) {
+      link.classList.add("active");
     }
   });
 });
 
-// 1. Ambil elemen tombol hamburger dan wadah sidebar
 const menuToggle = document.getElementById("menu-toggle");
 const navContainer = document.querySelector(".navcontainer");
 
-// 2. Jika tombol diklik, tambahkan atau hapus class 'show' pada sidebar
 if (menuToggle && navContainer) {
-  menuToggle.addEventListener("click", function() {
+  menuToggle.addEventListener("click", function () {
     navContainer.classList.toggle("show");
   });
 }
 
-// (Opsional) Tutup menu jika user mengklik area lain di luar sidebar pada mode HP
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
   if (window.innerWidth <= 768) {
-    if (!navContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+    if (
+      !navContainer.contains(event.target) &&
+      !menuToggle.contains(event.target)
+    ) {
       navContainer.classList.remove("show");
     }
   }

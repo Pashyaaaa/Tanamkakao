@@ -1,14 +1,6 @@
-/**
- * smart-seeding.js — Logika UI Smart Seeding Matching (tanpa AI)
- * Bergantung pada: smart-seeding-engine.js (harus dimuat lebih dulu)
- */
-
 (function () {
   "use strict";
 
-  /* ─── INISIALISASI UI ──────────────────────────────────────── */
-
-  // Sinkronisasi slider ketinggian ↔ input angka
   const ketinggianInput = document.getElementById("ketinggian");
   const ketinggianSlider = document.getElementById("ketinggian-slider");
 
@@ -22,7 +14,6 @@
     });
   }
 
-  // Update indikator pH
   const phInput = document.getElementById("ph-tanah");
   const phIndicator = document.getElementById("ph-indicator");
 
@@ -36,7 +27,6 @@
     phInput.addEventListener("input", updatePhIndicator);
   }
 
-  // Tombol prioritas — pilih satu
   const priorityBtns = document.querySelectorAll(".ss-priority-btn");
   priorityBtns.forEach((btn) => {
     btn.addEventListener("click", function () {
@@ -44,8 +34,6 @@
       this.classList.toggle("selected");
     });
   });
-
-  /* ─── AMBIL & VALIDASI FORM ───────────────────────────────── */
 
   function ambilDataForm() {
     const priorityEl = document.querySelector(".ss-priority-btn.selected");
@@ -77,8 +65,6 @@
     return null;
   }
 
-  /* ─── STATE MANAGER ───────────────────────────────────────── */
-
   function tampilkanState(state) {
     ["idle", "loading", "result", "error"].forEach((s) => {
       const el = document.getElementById("ss-state-" + s);
@@ -90,8 +76,6 @@
       }
     });
   }
-
-  /* ─── ANIMASI LOADING ─────────────────────────────────────── */
 
   let loadingTimer = null;
 
@@ -110,7 +94,10 @@
     function nextStep() {
       if (i > 0) {
         const prev = document.getElementById(steps[i - 1]);
-        if (prev) { prev.classList.remove("active"); prev.classList.add("done"); }
+        if (prev) {
+          prev.classList.remove("active");
+          prev.classList.add("done");
+        }
       }
       if (i < steps.length) {
         const cur = document.getElementById(steps[i]);
@@ -128,23 +115,32 @@
     if (loadingTimer) clearTimeout(loadingTimer);
   }
 
-  /* ─── RENDER HASIL ────────────────────────────────────────── */
-
   function renderLahanSummary(data) {
     const labelTanah = {
-      latosol: "Latosol", andosol: "Andosol", podsolik: "Podsolik",
-      alluvial: "Alluvial", regosol: "Regosol", grumusol: "Grumusol",
+      latosol: "Latosol",
+      andosol: "Andosol",
+      podsolik: "Podsolik",
+      alluvial: "Alluvial",
+      regosol: "Regosol",
+      grumusol: "Grumusol",
     };
     const chips = [
       { icon: "fa-mountain", teks: `${data.ketinggian} mdpl` },
       { icon: "fa-cloud-rain", teks: `${data.curahHujan} mm/th` },
       { icon: "fa-temperature-half", teks: `${data.suhu}°C` },
-      { icon: "fa-layer-group", teks: labelTanah[data.jenisTanah] || data.jenisTanah },
+      {
+        icon: "fa-layer-group",
+        teks: labelTanah[data.jenisTanah] || data.jenisTanah,
+      },
       { icon: "fa-flask", teks: `pH ${data.phTanah}` },
     ];
-    if (data.luasLahan) chips.push({ icon: "fa-vector-square", teks: `${data.luasLahan} Ha` });
+    if (data.luasLahan)
+      chips.push({ icon: "fa-vector-square", teks: `${data.luasLahan} Ha` });
     document.getElementById("ss-lahan-summary").innerHTML = chips
-      .map((c) => `<span class="ss-lahan-chip"><i class="fa-solid ${c.icon}"></i> ${c.teks}</span>`)
+      .map(
+        (c) =>
+          `<span class="ss-lahan-chip"><i class="fa-solid ${c.icon}"></i> ${c.teks}</span>`,
+      )
       .join("");
   }
 
@@ -155,22 +151,24 @@
         const rankClass = `rank-${idx + 1}`;
         const isTop = idx === 0;
 
-        // Bar skor visual
-        const barColor = v.skor >= 80 ? "#688f4e" : v.skor >= 60 ? "#ff8000" : "#b3b3b3";
+        const barColor =
+          v.skor >= 80 ? "#688f4e" : v.skor >= 60 ? "#ff8000" : "#b3b3b3";
 
-        // Detail parameter
         const detailHtml = v.detail
           .map((d) => {
-            const icon = d.status === "optimal"
-              ? `<i class="fa-solid fa-circle-check" style="color:#688f4e"></i>`
-              : `<i class="fa-solid fa-circle-exclamation" style="color:#ff8000"></i>`;
+            const icon =
+              d.status === "optimal"
+                ? `<i class="fa-solid fa-circle-check" style="color:#688f4e"></i>`
+                : `<i class="fa-solid fa-circle-exclamation" style="color:#ff8000"></i>`;
             return `<span class="ss-param-chip">${icon} ${d.param}</span>`;
           })
           .join("");
 
-        // Keunggulan
         const keunggulanHtml = v.keunggulan
-          .map((k) => `<li><i class="fa-solid fa-check" style="color:#688f4e;font-size:10px"></i> ${k}</li>`)
+          .map(
+            (k) =>
+              `<li><i class="fa-solid fa-check" style="color:#688f4e;font-size:10px"></i> ${k}</li>`,
+          )
           .join("");
 
         return `
@@ -220,7 +218,6 @@
       })
       .join("");
 
-    // Trigger animasi bar setelah render
     setTimeout(() => {
       document.querySelectorAll(".ss-score-bar-mini div").forEach((el) => {
         el.style.width = el.style.width;
@@ -229,7 +226,6 @@
   }
 
   function renderAnalisis(teks, peringatan) {
-    // Peringatan
     const warningContainer = document.getElementById("ss-peringatan");
     if (warningContainer) {
       if (peringatan && peringatan.length > 0) {
@@ -242,7 +238,6 @@
       }
     }
 
-    // Analisis teks — efek ketik
     const el = document.getElementById("ss-ai-explanation-body");
     if (!el) return;
     el.textContent = "";
@@ -261,12 +256,13 @@
     ketikKata();
   }
 
-  /* ─── MAIN: JALANKAN ANALISIS ─────────────────────────────── */
-
   window.jalankanAnalisis = function () {
     const data = ambilDataForm();
     const errorMsg = validasiForm(data);
-    if (errorMsg) { alert(errorMsg); return; }
+    if (errorMsg) {
+      alert(errorMsg);
+      return;
+    }
 
     const submitBtn = document.getElementById("ss-submit-btn");
     submitBtn.disabled = true;
@@ -274,10 +270,8 @@
     tampilkanState("loading");
     mulaiAnimasiLoading();
 
-    // Jalankan engine setelah animasi step 1 selesai
     setTimeout(() => {
       stopAnimasiLoading();
-
       const hasil = window.SmartSeedingEngine.rekomendasikan(data);
 
       renderLahanSummary(data);
@@ -288,8 +282,6 @@
       submitBtn.disabled = false;
     }, 2200);
   };
-
-  /* ─── RESET ───────────────────────────────────────────────── */
 
   window.resetForm = function () {
     document.getElementById("ketinggian").value = "";
@@ -304,41 +296,96 @@
     if (phIndicator) phIndicator.style.left = "50%";
     tampilkanState("idle");
   };
+
+  const LOCAL_STORAGE_KEY = "tanamkakao_kebun";
+
+  window.initSumberDataLahan = function () {
+    const savedKebun =
+      JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+    const container = document.getElementById("sumber-data-container");
+    const select = document.getElementById("sumber-data");
+
+    if (container && select && savedKebun.length > 0) {
+      container.style.display = "block";
+      savedKebun.forEach((kebun, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.text = `🌿 ${kebun.nama || "Kebun " + (index + 1)} (${kebun.luas || 0} Ha)`;
+        select.appendChild(option);
+      });
+    }
+  };
+
+  window.pilihLahanTersimpan = function (value) {
+    if (value === "manual") {
+      window.resetForm();
+      document.getElementById("sumber-data").value = "manual";
+      return;
+    }
+
+    const savedKebun =
+      JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+    const kebun = savedKebun[value];
+
+    if (kebun) {
+      setValueAndTrigger("ketinggian", kebun.ketinggian);
+      setValueAndTrigger("curah-hujan", kebun.curahHujan);
+      setValueAndTrigger("suhu", kebun.suhuRataRata);
+      setValueAndTrigger("jenis-tanah", kebun.jenisTanah);
+      setValueAndTrigger("ph-tanah", kebun.phTanah);
+      setValueAndTrigger("luas-lahan", kebun.luas);
+
+      setTimeout(() => {
+        window.jalankanAnalisis();
+      }, 600);
+    }
+  };
+
+  function setValueAndTrigger(id, value) {
+    const el = document.getElementById(id);
+    if (el && value !== undefined && value !== "") {
+      el.value = value;
+      el.dispatchEvent(new Event("input"));
+      el.dispatchEvent(new Event("change"));
+    }
+  }
 })();
 
-document.addEventListener("DOMContentLoaded", function() {
-  const currentPath = window.location.pathname; 
-  const navLinks = document.querySelectorAll('.nav-option');
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof window.initSumberDataLahan === "function") {
+    window.initSumberDataLahan();
+  }
 
-  navLinks.forEach(link => {
-    // 1. Hapus class active dari semua link untuk berjaga-jaga jika ada yang "nyangkut" dari HTML
-    link.classList.remove('active');
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll(".nav-option");
 
-    // 2. Ekstrak pathname yang bersih dari URL link navigasi
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
     const linkPath = new URL(link.href, window.location.origin).pathname;
-
-    // 3. Jika path saat ini sama dengan path pada link, aktifkan class-nya!
-    if (currentPath === linkPath || currentPath.endsWith(link.getAttribute('href').replace('../', ''))) {
-      link.classList.add('active');
+    if (
+      currentPath === linkPath ||
+      currentPath.endsWith(link.getAttribute("href").replace("../", ""))
+    ) {
+      link.classList.add("active");
     }
   });
 });
 
-// 1. Ambil elemen tombol hamburger dan wadah sidebar
 const menuToggle = document.getElementById("menu-toggle");
 const navContainer = document.querySelector(".navcontainer");
 
-// 2. Jika tombol diklik, tambahkan atau hapus class 'show' pada sidebar
 if (menuToggle && navContainer) {
-  menuToggle.addEventListener("click", function() {
+  menuToggle.addEventListener("click", function () {
     navContainer.classList.toggle("show");
   });
 }
 
-// (Opsional) Tutup menu jika user mengklik area lain di luar sidebar pada mode HP
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
   if (window.innerWidth <= 768) {
-    if (!navContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+    if (
+      !navContainer.contains(event.target) &&
+      !menuToggle.contains(event.target)
+    ) {
       navContainer.classList.remove("show");
     }
   }
