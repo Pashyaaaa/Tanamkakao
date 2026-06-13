@@ -146,4 +146,338 @@
   }
   /* end style navigation */
 
+  .content {
+    height: calc(100vh - 70px);
+    flex: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 40px 30px 30px 30px;
+  }
   
+  .content::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom, rgb(0, 0, 85), rgb(0, 0, 50));
+  }
+  
+  .content::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .content::-webkit-scrollbar-track {
+    background-color: #9e9e9eb2;
+  }
+
+  .judul-halaman  {
+    color: var(--primary-color);
+  }
+  .sub-judul {
+    color: var(--background-color2);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ============================================================
+   smart-seeding.css — TanamKakao Smart Seeding Matching (v2)
+   Engine berbasis aturan — tanpa AI eksternal
+   ============================================================ */
+
+/* ----- Active nav ------------------------------------------ */
+.active-nav { border-left: 5px solid var(--background-color2); background-color: var(--third-color); }
+.active-nav h3 { color: var(--primary-color) !important; }
+
+/* ----- Page Header ----------------------------------------- */
+.ss-page-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 24px;
+  flex-wrap: wrap; gap: 12px;
+}
+.ss-db-badge {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--primary-color); color: var(--third-color);
+  font-size: 11px; font-weight: 600; padding: 6px 14px;
+  border-radius: 20px; flex-shrink: 0;
+}
+
+/* ----- Layout ---------------------------------------------- */
+.ss-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+@media (max-width: 900px) { .ss-layout { grid-template-columns: 1fr; } }
+
+/* ----- Form Card ------------------------------------------- */
+.ss-form-card {
+  background: #fff; border: 1px solid #e5e7eb;
+  border-radius: 12px; padding: 22px; margin-bottom: 12px;
+}
+.ss-form-section-title {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--primary-color);
+  margin-bottom: 18px; padding-bottom: 10px;
+  border-bottom: 2px solid var(--secondary-color);
+}
+.ss-form-section-title i { color: var(--secondary-color); }
+.ss-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+@media (max-width: 600px) { .ss-form-grid { grid-template-columns: 1fr; } }
+
+/* ----- Fields ---------------------------------------------- */
+.ss-field { display: flex; flex-direction: column; gap: 5px; }
+.ss-field-full { margin-bottom: 14px; }
+.ss-label {
+  font-size: 12px; font-weight: 600; color: var(--primary-color);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ss-hint, .ss-optional { font-size: 11px; font-weight: 400; color: var(--background-color2); }
+
+/* ----- Inputs ---------------------------------------------- */
+.ss-input-wrap {
+  display: flex; align-items: center; border: 1px solid #e5e7eb;
+  border-radius: 8px; overflow: hidden; background: #fff; transition: border-color 0.15s;
+}
+.ss-input-wrap:focus-within { border-color: var(--secondary-color); box-shadow: 0 0 0 2px rgba(104,143,78,0.15); }
+.ss-input {
+  flex: 1; border: none; outline: none; padding: 9px 12px;
+  font-size: 13px; font-family: "Poppins", sans-serif; color: var(--primary-color);
+  background: transparent; min-width: 0;
+}
+.ss-input::placeholder { color: #c5c5c5; }
+.ss-input-unit {
+  font-size: 11px; font-weight: 600; color: var(--background-color2);
+  padding: 0 10px; background: #f8f8f6; border-left: 1px solid #e5e7eb;
+  height: 100%; display: flex; align-items: center; white-space: nowrap;
+}
+.ss-select {
+  border: 1px solid #e5e7eb; border-radius: 8px; padding: 9px 12px;
+  font-size: 13px; font-family: "Poppins", sans-serif; color: var(--primary-color);
+  background: #fff; outline: none; cursor: pointer; transition: border-color 0.15s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23688f4e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px;
+}
+.ss-select:focus { border-color: var(--secondary-color); box-shadow: 0 0 0 2px rgba(104,143,78,0.15); }
+
+/* ----- Slider ---------------------------------------------- */
+.ss-slider-wrap { margin-top: 4px; }
+.ss-slider { width: 100%; accent-color: var(--secondary-color); height: 4px; cursor: pointer; }
+.ss-slider-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--background-color2); margin-top: 2px; }
+
+/* ----- pH Bar ---------------------------------------------- */
+.ss-ph-bar-wrap { margin-top: 4px; }
+.ss-ph-bar {
+  height: 6px; border-radius: 3px;
+  background: linear-gradient(to right, #e24b4a, #f0c040, #b1d182, #3bb0d8, #3131d0);
+  position: relative; margin-bottom: 3px;
+}
+.ss-ph-indicator {
+  width: 12px; height: 12px; background: var(--primary-color);
+  border: 2px solid #fff; border-radius: 50%; position: absolute;
+  top: 50%; transform: translate(-50%, -50%); transition: left 0.3s;
+  left: 50%; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.ss-ph-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--background-color2); }
+
+/* ----- Textarea -------------------------------------------- */
+.ss-textarea {
+  border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 12px;
+  font-size: 13px; font-family: "Poppins", sans-serif; color: var(--primary-color);
+  resize: vertical; outline: none; transition: border-color 0.15s; line-height: 1.5;
+}
+.ss-textarea:focus { border-color: var(--secondary-color); box-shadow: 0 0 0 2px rgba(104,143,78,0.15); }
+.ss-textarea::placeholder { color: #c5c5c5; }
+
+/* ----- Priority Buttons ------------------------------------ */
+.ss-priority-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ss-priority-btn {
+  display: flex; align-items: center; gap: 8px; padding: 9px 12px;
+  border: 1.5px solid #e5e7eb; border-radius: 8px; background: #fff;
+  font-size: 12px; font-family: "Poppins", sans-serif; font-weight: 500;
+  color: var(--primary-color); cursor: pointer; transition: all 0.15s; text-align: left;
+}
+.ss-priority-btn i { color: var(--background-color2); font-size: 13px; }
+.ss-priority-btn:hover { border-color: var(--secondary-color); color: var(--secondary-color); }
+.ss-priority-btn:hover i { color: var(--secondary-color); }
+.ss-priority-btn.selected { background: var(--primary-color); border-color: var(--primary-color); color: var(--third-color); }
+.ss-priority-btn.selected i { color: var(--third-color); }
+
+/* ----- Submit Button --------------------------------------- */
+.ss-submit-btn {
+  width: 100%; margin-top: 18px; padding: 13px 20px;
+  background: var(--secondary-color); color: #fff; border: none; border-radius: 10px;
+  font-size: 14px; font-family: "Poppins", sans-serif; font-weight: 600;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  gap: 8px; transition: all 0.2s;
+}
+.ss-submit-btn:hover { background: var(--primary-color); }
+.ss-submit-btn:active { transform: scale(0.98); }
+.ss-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* ----- DB Info Card ---------------------------------------- */
+.ss-db-info {
+  background: var(--background-color1); border: 1px solid #e5e7eb;
+  border-radius: 10px; padding: 14px 16px;
+}
+.ss-db-info-title {
+  font-size: 12px; font-weight: 600; color: var(--primary-color);
+  display: flex; align-items: center; gap: 6px; margin-bottom: 10px;
+}
+.ss-db-info-title i { color: var(--secondary-color); }
+.ss-db-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.ss-db-chips span {
+  font-size: 11px; font-weight: 500; padding: 3px 10px;
+  border-radius: 20px; background: #fff; border: 1px solid #e5e7eb; color: var(--primary-color);
+}
+.ss-db-info-sub { font-size: 11px; color: var(--background-color2); }
+
+/* ----- Result Panel ---------------------------------------- */
+.ss-result-panel {
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+  padding: 22px; min-height: 420px; display: flex; flex-direction: column;
+}
+
+/* ----- Idle State ------------------------------------------ */
+.ss-state-idle {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 32px 20px; gap: 10px;
+}
+.ss-idle-icon {
+  width: 68px; height: 68px; background: #eaf3de; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; color: var(--secondary-color); margin-bottom: 6px;
+}
+.ss-state-idle h3 { font-size: 15px; font-weight: 600; color: var(--primary-color); }
+.ss-state-idle p { font-size: 13px; color: var(--background-color2); max-width: 260px; line-height: 1.6; }
+.ss-idle-stats { display: flex; gap: 24px; margin-top: 16px; }
+.ss-idle-stat { text-align: center; }
+.ss-idle-stat-num { display: block; font-size: 24px; font-weight: 700; color: var(--secondary-color); }
+.ss-idle-stat-label { font-size: 11px; color: var(--background-color2); }
+
+/* ----- Loading State --------------------------------------- */
+.ss-state-loading {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 14px; padding: 32px 20px; text-align: center;
+}
+.ss-loading-spinner { position: relative; width: 68px; height: 68px; display: flex; align-items: center; justify-content: center; }
+.ss-spinner-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 3px solid #e5e7eb; border-top-color: var(--secondary-color);
+  animation: ss-spin 1s linear infinite;
+}
+.ss-spinner-icon { font-size: 24px; color: var(--primary-color); }
+@keyframes ss-spin { to { transform: rotate(360deg); } }
+.ss-state-loading h3 { font-size: 15px; font-weight: 600; color: var(--primary-color); }
+.ss-state-loading p { font-size: 12px; color: var(--background-color2); }
+.ss-loading-steps { display: flex; flex-direction: column; gap: 7px; margin-top: 6px; text-align: left; width: 100%; max-width: 250px; }
+.ss-loading-step { font-size: 12px; color: var(--background-color2); display: flex; align-items: center; gap: 7px; transition: color 0.3s; }
+.ss-loading-step.active { color: var(--secondary-color); font-weight: 500; }
+.ss-loading-step.done { color: var(--secondary-color); }
+.ss-loading-step.done i::before { content: "\f058"; }
+
+/* ----- Result Header --------------------------------------- */
+.ss-result-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.ss-result-title { font-size: 14px; font-weight: 600; color: var(--primary-color); display: flex; align-items: center; gap: 7px; }
+.ss-result-title i { color: var(--secondary-color); }
+.ss-reset-btn {
+  font-size: 12px; font-family: "Poppins", sans-serif; padding: 5px 12px;
+  border: 1px solid #e5e7eb; border-radius: 20px; background: #fff;
+  color: var(--background-color2); cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.15s;
+}
+.ss-reset-btn:hover { border-color: var(--primary-color); color: var(--primary-color); }
+
+/* ----- Lahan Summary --------------------------------------- */
+.ss-lahan-summary {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;
+  padding: 10px 12px; background: var(--background-color1); border-radius: 8px;
+}
+.ss-lahan-chip {
+  font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px;
+  background: #fff; border: 1px solid #e5e7eb; color: var(--primary-color);
+  display: flex; align-items: center; gap: 4px;
+}
+.ss-lahan-chip i { color: var(--secondary-color); font-size: 10px; }
+
+/* ----- Peringatan ------------------------------------------ */
+.ss-peringatan {
+  margin-bottom: 12px; display: flex; flex-direction: column; gap: 6px;
+}
+.ss-warning-item {
+  background: #fff8e6; border: 1px solid #ffd97d; border-left: 3px solid #ff8000;
+  border-radius: 8px; padding: 9px 12px; font-size: 12px; color: #633806; line-height: 1.5;
+}
+
+/* ----- Rekomendasi Cards ----------------------------------- */
+.ss-rekomendasi-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+
+.ss-rekom-card {
+  border: 1.5px solid #e5e7eb; border-radius: 10px; padding: 14px;
+  position: relative; transition: border-color 0.15s;
+}
+.ss-rekom-card.rank-1 { border-color: var(--secondary-color); background: #f8fdf3; }
+
+.ss-best-badge {
+  position: absolute; top: -8px; right: 12px;
+  background: var(--secondary-color); color: #fff;
+  font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 20px;
+}
+
+/* Top row: rank + nama + skor */
+.ss-rekom-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+
+.ss-rekom-rank {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.rank-1 .ss-rekom-rank { background: var(--secondary-color); color: #fff; }
+.rank-2 .ss-rekom-rank { background: #e5e7eb; color: var(--primary-color); }
+.rank-3 .ss-rekom-rank { background: #f4f1e9; color: var(--primary-color); }
+
+.ss-rekom-body { flex: 1; min-width: 0; }
+.ss-rekom-name { font-size: 14px; font-weight: 600; color: var(--primary-color); }
+.ss-rekom-asal { font-size: 11px; color: var(--background-color2); margin-top: 1px; }
+
+.ss-rekom-score-wrap { text-align: center; flex-shrink: 0; min-width: 48px; }
+.ss-score-value { font-size: 22px; font-weight: 700; line-height: 1; }
+.ss-score-label { font-size: 10px; color: var(--background-color2); }
+.ss-score-bar-mini { width: 48px; height: 4px; background: #f0ede5; border-radius: 2px; margin-top: 4px; overflow: hidden; }
+
+/* Detail collapsible */
+.ss-rekom-detail { border-top: 1px solid #f0ede5; padding-top: 10px; }
+
+.ss-rekom-stat-row { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.ss-rekom-stat {
+  flex: 1; min-width: 80px; background: var(--background-color1);
+  border-radius: 8px; padding: 8px 10px;
+}
+.ss-stat-label { display: block; font-size: 10px; color: var(--background-color2); margin-bottom: 2px; }
+.ss-stat-value { display: block; font-size: 12px; font-weight: 600; color: var(--primary-color); }
+
+.ss-rekom-params { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.ss-param-chip {
+  font-size: 11px; padding: 2px 8px; border-radius: 20px;
+  background: #f8f8f6; border: 1px solid #e5e7eb; color: var(--primary-color);
+  display: flex; align-items: center; gap: 4px;
+}
+
+.ss-rekom-keunggulan { list-style: none; padding: 0; margin: 0 0 8px; display: flex; flex-direction: column; gap: 3px; }
+.ss-rekom-keunggulan li { font-size: 12px; color: var(--primary-color); display: flex; align-items: flex-start; gap: 6px; line-height: 1.4; }
+
+.ss-rekom-sumber { font-size: 10px; color: var(--background-color2); display: flex; align-items: center; gap: 4px; }
+
+/* ----- AI Explanation -------------------------------------- */
+.ss-ai-explanation { background: var(--background-color1); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
+.ss-ai-explanation-header { font-size: 12px; font-weight: 600; color: var(--primary-color); display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.ss-ai-explanation-header i { color: var(--secondary-color); }
+.ss-ai-explanation-body { font-size: 13px; color: var(--primary-color); line-height: 1.7; white-space: pre-wrap; }
+
+/* ----- Disclaimer ------------------------------------------ */
+.ss-disclaimer {
+  font-size: 11px; color: var(--background-color2); display: flex;
+  align-items: flex-start; gap: 6px; line-height: 1.5; padding: 10px 12px;
+  background: #f9f9f9; border-radius: 8px; border-left: 3px solid var(--background-color2);
+}
+.ss-disclaimer i { flex-shrink: 0; margin-top: 1px; }
+
+/* ----- Typing cursor --------------------------------------- */
+.ss-typing::after {
+  content: "▌"; animation: ss-blink 0.7s step-end infinite;
+  color: var(--secondary-color); font-size: 14px;
+}
+@keyframes ss-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
