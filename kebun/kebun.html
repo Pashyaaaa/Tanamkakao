@@ -12,8 +12,8 @@
 
 <body>
   <header class="header">
-    <i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255); visibility: hidden"></i>
-    <div class="logo">Tanam<span class="logop">Kakao</span></div>
+    <i class="fa-solid fa-bars fa-xl menu-toggle" id="menu-toggle" style="color: rgb(255, 255, 255);"></i>
+    <div class=" logo">Tanam<span class="logop">Kakao</span></div>
     <div class="icon-profil">
       <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
       <button class="logout-btn" onclick="logout()">
@@ -51,20 +51,20 @@
       </nav>
     </aside>
 
-      <main class="content">
-        <section class="halaman-kebun">
-          <header class="kebun-header-action">
-            <div>
-              <h2 class="judul-halaman">Data Kebun Saya</h2>
-              <p class="sub-judul">
-                Pantau luas lahan, total pohon, dan status pertumbuhan kakao
-                Anda.
-              </p>
-            </div>
-            <button class="btn-tambah-blok" id="btnBukaModal">
-              + Tambah Kebun
-            </button>
-          </header>
+    <main class="content">
+      <section class="halaman-kebun">
+        <header class="kebun-header-action">
+          <div>
+            <h2 class="judul-halaman">Data Kebun Saya</h2>
+            <p class="sub-judul">
+              Pantau luas lahan, total pohon, dan status pertumbuhan kakao
+              Anda.
+            </p>
+          </div>
+          <button class="btn-tambah-blok" id="btnBukaModal">
+            + Tambah Kebun
+          </button>
+        </header>
 
         <section class="summary-grid">
           <article class="summary-card">
@@ -111,24 +111,19 @@
     </main>
   </div>
 
-    <div class="modal-overlay" id="modalBlok">
-      <div class="modal-content">
-        <header class="modal-header">
-          <h3 id="modalTitle">Tambah Kebun</h3>
-          <button class="btn-close-modal" id="btnTutupModal">&times;</button>
-        </header>
-        <form id="formBlok">
-          <input type="hidden" id="editIndex" value="-1" />
+  <div class="modal-overlay" id="modalBlok">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h3 id="modalTitle">Tambah Kebun</h3>
+        <button class="btn-close-modal" id="btnTutupModal">&times;</button>
+      </header>
+      <form id="formBlok">
+        <input type="hidden" id="editIndex" value="-1" />
 
-          <div class="form-group">
-            <label for="namaBlok">Nama Blok Lahan</label>
-            <input
-              type="text"
-              id="namaBlok"
-              placeholder="Contoh: Blok A (Utara)"
-              required
-            />
-          </div>
+        <div class="form-group">
+          <label for="namaBlok">Nama Blok Lahan</label>
+          <input type="text" id="namaBlok" placeholder="Contoh: Blok A (Utara)" required />
+        </div>
 
         <div class="form-row-custom">
           <div class="form-group" style="flex: 1">
@@ -148,65 +143,37 @@
           </div>
         </div>
 
-          <button type="button" class="btn-hitung" id="btnHitung">
-            Hitung Estimasi Jumlah Pohon
-          </button>
+        <button type="button" class="btn-hitung" id="btnHitung">
+          Hitung Estimasi Jumlah Pohon
+        </button>
 
-          <div class="form-group">
-            <label for="populasi">Estimasi Jumlah Pohon</label>
-            <input
-              type="number"
-              id="populasi"
-              class="input-readonly"
-              readonly
-              placeholder="Klik hitung rekomendasi..."
-              required
-            />
-          </div>
+        <div class="form-group">
+          <label for="populasi">Estimasi Jumlah Pohon</label>
+          <input type="number" id="populasi" class="input-readonly" readonly placeholder="Klik hitung rekomendasi..."
+            required />
+        </div>
 
-          <div class="form-row-custom">
-            <div class="form-group" style="flex: 1">
-              <label for="curahHujan">Curah Hujan (mm/tahun)</label>
-              <input
-                type="number"
-                id="curahHujan"
-                placeholder="Contoh: 2000"
-                required
-              />
-            </div>
-            <div class="form-group" style="flex: 1">
-              <label for="suhuRataRata">Suhu Rata-rata (°C)</label>
-              <input
-                type="number"
-                step="0.1"
-                id="suhuRataRata"
-                placeholder="Contoh: 27.5"
-                required
-              />
-            </div>
+        <div class="form-row-custom">
+          <div class="form-group" style="flex: 1">
+            <label for="curahHujan">Curah Hujan (mm/tahun)</label>
+            <input type="number" id="curahHujan" placeholder="Contoh: 2000" required />
           </div>
+          <div class="form-group" style="flex: 1">
+            <label for="suhuRataRata">Suhu Rata-rata (°C)</label>
+            <input type="number" step="0.1" id="suhuRataRata" placeholder="Contoh: 27.5" required />
+          </div>
+        </div>
 
-          <div class="form-row-custom">
-            <div class="form-group" style="flex: 1">
-              <label for="jenisTanah">Jenis Tanah</label>
-              <input
-                type="text"
-                id="jenisTanah"
-                placeholder="Contoh: Lempung Berpasir"
-                required
-              />
-            </div>
-            <div class="form-group" style="flex: 1">
-              <label for="phTanah">pH Tanah</label>
-              <input
-                type="number"
-                step="0.1"
-                id="phTanah"
-                placeholder="Contoh: 6.5"
-                required
-              />
-            </div>
+        <div class="form-row-custom">
+          <div class="form-group" style="flex: 1">
+            <label for="jenisTanah">Jenis Tanah</label>
+            <input type="text" id="jenisTanah" placeholder="Contoh: Lempung Berpasir" required />
           </div>
+          <div class="form-group" style="flex: 1">
+            <label for="phTanah">pH Tanah</label>
+            <input type="number" step="0.1" id="phTanah" placeholder="Contoh: 6.5" required />
+          </div>
+        </div>
 
         <div class="form-group">
           <label for="status">Status Pertumbuhan Saat Ini</label>
@@ -216,15 +183,15 @@
           </select>
         </div>
 
-          <footer class="modal-footer">
-            <button type="button" class="btn-batal" id="btnBatal">Batal</button>
-            <button type="submit" class="btn-simpan" id="btnSimpan">
-              Simpan ke Dasbor
-            </button>
-          </footer>
-        </form>
-      </div>
+        <footer class="modal-footer">
+          <button type="button" class="btn-batal" id="btnBatal">Batal</button>
+          <button type="submit" class="btn-simpan" id="btnSimpan">
+            Simpan ke Dasbor
+          </button>
+        </footer>
+      </form>
     </div>
+  </div>
 
   <script src="../js/auth.js"></script>
   <script>

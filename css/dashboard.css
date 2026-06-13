@@ -558,6 +558,79 @@ body {
   color: var(--primary-color);
 }
  
+/* Sembunyikan ikon hamburger di layar laptop/PC */
+.menu-toggle {
+  color: white;
+  display: none !important; 
+  cursor: pointer;
+}
+
+/* --- TAMPILAN RESPONSIVE UNTUK HP (Lebar maksimal 768px) --- */
+@media (max-width: 768px) {
+  /* 1. Munculkan ikon hamburger */
+  .menu-toggle {
+    display: inline-block !important;
+  }
+
+  /* 2. Ubah sidebar menjadi pop-up overlay yang tersembunyi ke kiri */
+  .navcontainer {
+    position: fixed;
+    top: 70px;
+    left: -250px;
+    height: calc(100vh - 70px);
+    z-index: 99;
+    transition: left 0.3s ease-in-out;
+    background-color: var(--primary-color);
+    
+    /* 1. PINDAHKAN LENGKUNGAN & BAYANGAN KE SINI */
+    border-radius: 0px 15px 0px 0px; 
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+    
+    /* 2. TAMBAHKAN INI agar blok menu hover tidak keluar jalur lengkungan */
+    overflow: hidden; 
+  }
+
+  .navcontainer.show {
+    left: 0;
+  }
+
+  .nav {
+    /* 3. RESET LENGKUNGAN DI SINI KARENA SUDAH DIURUS WADAHNYA */
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  /* 3. Sesuaikan area konten agar tidak terlalu mepet */
+  .content {
+    padding: 20px 15px;
+  }
+
+  /* 4. Sembunyikan teks "Keluar" pada tombol logout, sisakan ikon saja agar hemat tempat */
+  .logout-btn span {
+    display: none;
+  }
+  
+  .logout-btn {
+    padding: 6px 10px;
+    margin-left: 0;
+  }
+  
+  .logo {
+    font-size: 24px;
+    margin-left: 10px;
+  }
+  .logop {
+    font-size: 24px;
+  }
+  .icon-profil{
+    gap: 5px;
+  }
+  .grid {
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
 
 @media (max-width: 480px) {
   .news-header {
@@ -573,6 +646,34 @@ body {
     width: 36px;
     height: 36px;
     font-size: 16px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* 2. Perkecil ruang kosong (padding) di dalam card agar tidak boros tempat */
+  .card {
+    padding: 16px;
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+
+  /* 3. Perkecil ikon di dalam card */
+  .icon-box {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  /* 4. Sesuaikan ukuran teks agar lebih proporsional di HP */
+  .value-card {
+    font-size: 16px;
+  }
+  
+  .label-card, .label-task-card, .unit-card {
+    font-size: 11px;
   }
 }
 /* end main content */  

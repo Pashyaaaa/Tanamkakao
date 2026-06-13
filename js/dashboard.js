@@ -96,3 +96,23 @@
       }
     });
   });
+
+  // 1. Ambil elemen tombol hamburger dan wadah sidebar
+  const menuToggle = document.getElementById("menu-toggle");
+  const navContainer = document.querySelector(".navcontainer");
+
+  // 2. Jika tombol diklik, tambahkan atau hapus class 'show' pada sidebar
+  if (menuToggle && navContainer) {
+    menuToggle.addEventListener("click", function() {
+      navContainer.classList.toggle("show");
+    });
+  }
+
+  // (Opsional) Tutup menu jika user mengklik area lain di luar sidebar pada mode HP
+  document.addEventListener("click", function(event) {
+    if (window.innerWidth <= 768) {
+      if (!navContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+        navContainer.classList.remove("show");
+      }
+    }
+  });

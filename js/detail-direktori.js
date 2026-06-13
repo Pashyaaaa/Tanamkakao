@@ -56,3 +56,42 @@ if (dataKetemu) {
   document.getElementById("namaPenjual").innerText =
     "Data Penjual Tidak Ditemukan";
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const currentPath = window.location.pathname; 
+  const navLinks = document.querySelectorAll('.nav-option');
+
+  navLinks.forEach(link => {
+    // 1. Hapus class active dari semua link untuk berjaga-jaga jika ada yang "nyangkut" dari HTML
+    link.classList.remove('active');
+
+    // 2. Ekstrak pathname yang bersih dari URL link navigasi
+    const linkPath = new URL(link.href, window.location.origin).pathname;
+
+    // 3. Jika path saat ini sama dengan path pada link, aktifkan class-nya!
+    if (currentPath === linkPath || currentPath.endsWith(link.getAttribute('href').replace('../', ''))) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// 1. Ambil elemen tombol hamburger dan wadah sidebar
+const menuToggle = document.getElementById("menu-toggle");
+const navContainer = document.querySelector(".navcontainer");
+
+// 2. Jika tombol diklik, tambahkan atau hapus class 'show' pada sidebar
+if (menuToggle && navContainer) {
+  menuToggle.addEventListener("click", function() {
+    navContainer.classList.toggle("show");
+  });
+}
+
+// (Opsional) Tutup menu jika user mengklik area lain di luar sidebar pada mode HP
+document.addEventListener("click", function(event) {
+  if (window.innerWidth <= 768) {
+    if (!navContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+      navContainer.classList.remove("show");
+    }
+  }
+});
