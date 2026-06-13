@@ -528,18 +528,29 @@ body {
   .brand-panel {
     width: 100%;
     min-height: unset;
-    padding: 1.75rem 1.5rem;
+    padding: 1rem 0.5rem;
+    max-height: 20vh;
   }
+
   .brand-headline {
-    font-size: 1.6rem;
+    font-size: 1rem;
+    display: flex;
+    gap: 2px;
   }
+
   .brand-features {
     display: none;
   }
+
   .brand-body {
-    margin-top: 1.25rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
   }
+
+  .brand-sub {
+    display: none;
+  }
+
   .deco-circle,
   .deco-leaf {
     display: none;
@@ -548,6 +559,7 @@ body {
   .form-panel {
     padding: 2rem 1.25rem;
   }
+
   .form-container {
     max-width: 100%;
   }

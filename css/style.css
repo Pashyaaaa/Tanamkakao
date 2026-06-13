@@ -1079,6 +1079,44 @@ footer {
   }
 }
 
+/* ==============================================================
+   FIX UNTUK LAYAR LAPTOP SCALING (LEBAR TAPI PENDEK)
+   ============================================================== */
+@media (max-height: 800px) and (min-width: 901px) {
+  /* Dorong konten ke bawah supaya tidak nyundul Navbar dan Noticebar */
+  .hero-section {
+    padding-top: 100px;
+  }
+
+  /* Tahan ukuran font maksimal supaya tidak terlalu raksasa secara vertikal */
+  .hero-content h1 {
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    margin-bottom: 0.8rem;
+  }
+
+  /* Rapatkan sedikit elemen-elemen di dalamnya */
+  .hero-content p {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Kurangi jarak margin negatif yang bikin statistik melorot ke bawah */
+  .hero-stats {
+    margin: 40px auto -100px auto;
+    gap: 40px;
+  }
+
+  /* Sesuaikan sedikit ukuran angka dan label statistik */
+  .stat-num {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    padding: 6px 16px;
+  }
+}
+
 @media (max-width: 768px) {
   #noticeBar {
     font-size: 0.6rem;
