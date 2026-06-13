@@ -84,31 +84,25 @@
     const navLinks = document.querySelectorAll('.nav-option');
   
     navLinks.forEach(link => {
-      // 1. Hapus class active dari semua link untuk berjaga-jaga jika ada yang "nyangkut" dari HTML
       link.classList.remove('active');
   
-      // 2. Ekstrak pathname yang bersih dari URL link navigasi
       const linkPath = new URL(link.href, window.location.origin).pathname;
-  
-      // 3. Jika path saat ini sama dengan path pada link, aktifkan class-nya!
+
       if (currentPath === linkPath || currentPath.endsWith(link.getAttribute('href').replace('../', ''))) {
         link.classList.add('active');
       }
     });
   });
 
-  // 1. Ambil elemen tombol hamburger dan wadah sidebar
   const menuToggle = document.getElementById("menu-toggle");
   const navContainer = document.querySelector(".navcontainer");
 
-  // 2. Jika tombol diklik, tambahkan atau hapus class 'show' pada sidebar
   if (menuToggle && navContainer) {
     menuToggle.addEventListener("click", function() {
       navContainer.classList.toggle("show");
     });
   }
 
-  // (Opsional) Tutup menu jika user mengklik area lain di luar sidebar pada mode HP
   document.addEventListener("click", function(event) {
     if (window.innerWidth <= 768) {
       if (!navContainer.contains(event.target) && !menuToggle.contains(event.target)) {
@@ -116,3 +110,33 @@
       }
     }
   });
+
+const profileWrap = document.getElementById('profileWrap');
+const profileBtn  = document.getElementById('profileBtn');
+const profileDropdown = document.getElementById('profileDropdown');
+
+profileBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = profileWrap.classList.toggle('open');
+  profileBtn.setAttribute('aria-expanded', isOpen);
+});
+
+document.addEventListener('click', () => {
+  profileWrap.classList.remove('open');
+  profileBtn.setAttribute('aria-expanded', 'false');
+});
+
+profileDropdown.addEventListener('click', (e) => e.stopPropagation());
+
+const user = JSON.parse(localStorage.getItem('tanamkakao_session') || '{}');
+const name  = user.name  || 'Petani';
+const email = user.email || '';
+const parts = name.trim().split(' ').filter(Boolean);
+const initial = parts.length >= 2
+  ? parts[0][0].toUpperCase() + parts[1][0].toUpperCase()
+  : parts[0][0].toUpperCase();
+
+document.getElementById('profileAvatar').textContent = initial;
+document.getElementById('profileName').textContent   = name.split(' ')[0];
+document.getElementById('dropdownName').textContent  = name;
+document.getElementById('dropdownEmail').textContent = email || '—';

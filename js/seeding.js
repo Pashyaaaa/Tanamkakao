@@ -343,3 +343,33 @@ document.addEventListener("click", function(event) {
     }
   }
 });
+
+const profileWrap = document.getElementById('profileWrap');
+const profileBtn  = document.getElementById('profileBtn');
+const profileDropdown = document.getElementById('profileDropdown');
+
+profileBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = profileWrap.classList.toggle('open');
+  profileBtn.setAttribute('aria-expanded', isOpen);
+});
+
+document.addEventListener('click', () => {
+  profileWrap.classList.remove('open');
+  profileBtn.setAttribute('aria-expanded', 'false');
+});
+
+profileDropdown.addEventListener('click', (e) => e.stopPropagation());
+
+const user = JSON.parse(localStorage.getItem('tanamkakao_session') || '{}');
+const name  = user.name  || 'Petani';
+const email = user.email || '';
+const parts = name.trim().split(' ').filter(Boolean);
+const initial = parts.length >= 2
+  ? parts[0][0].toUpperCase() + parts[1][0].toUpperCase()
+  : parts[0][0].toUpperCase();
+
+document.getElementById('profileAvatar').textContent = initial;
+document.getElementById('profileName').textContent   = name.split(' ')[0];
+document.getElementById('dropdownName').textContent  = name;
+document.getElementById('dropdownEmail').textContent = email || '—';

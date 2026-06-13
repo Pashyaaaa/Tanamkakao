@@ -11,17 +11,39 @@
 </head>
 
 <body>
-  <div class="header">
+  <header class="header">
     <i class="fa-solid fa-bars fa-xl menu-toggle" id="menu-toggle" style="color: rgb(255, 255, 255);"></i>
-    <div class=" logo">Tanam<span class="logop">Kakao</span></div>
+    <div class="logo">🌱 Tanam<span class="logop">Kakao</span></div>
+
     <div class="icon-profil">
-      <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
-      <button class="logout-btn" onclick="logout()">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <span>Keluar</span>
-      </button>
+      <div class="profile-wrap" id="profileWrap">
+        <button class="profile-btn" id="profileBtn" aria-haspopup="true" aria-expanded="false">
+          <div class="profile-avatar" id="profileAvatar">P</div>
+          <span id="profileName">Petani</span>
+          <svg class="profile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="profile-dropdown" id="profileDropdown" role="menu">
+          <div class="dropdown-header">
+            <div class="dropdown-name" id="dropdownName">Petani</div>
+            <div class="dropdown-email" id="dropdownEmail">—</div>
+          </div>
+          <div class="dropdown-menu">
+            <a href="../index.html" class="dropdown-item" role="menuitem">
+              <i class="fa-solid fa-house fa-sm"></i>
+              Halaman Utama
+            </a>
+            <div class="dropdown-sep"></div>
+            <button class="dropdown-item danger" onclick="logout()" role="menuitem">
+              <i class="fa-solid fa-right-from-bracket fa-sm"></i>
+              Keluar
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </header>
 
   <div class="main-container">
     <div class="navcontainer">
@@ -84,9 +106,11 @@
       </section>
     </div>
   </div>
-
   <script src="../js/detail-direktori.js"></script>
   <script src="../js/auth.js"></script>
+  <script>
+    requireAuth();
+  </script>
 </body>
 
 </html>
