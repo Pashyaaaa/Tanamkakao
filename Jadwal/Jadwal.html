@@ -1,115 +1,91 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jadwal Perawatan TBM - TanamKakao</title>
-    <link rel="stylesheet" href="../css/dashboard.css" />
-    <link rel="stylesheet" href="../css/jadwal.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <header class="header">
-      <i
-        class="fa-solid fa-bars fa-xl"
-        style="color: rgb(255, 255, 255); visibility: hidden"
-      ></i>
-      <div class="logo">Tanam<span class="logop">Kakao</span></div>
-      <div class="icon-profil">
-        <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
-        <button class="logout-btn" onclick="logout()">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          <span>Keluar</span>
-        </button>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jadwal Perawatan TBM - TanamKakao</title>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/jadwal.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
 
-    <div class="main-container">
-      <aside class="navcontainer">
-        <nav class="nav">
-          <div class="nav-upper-options">
-            <a href="../Dashboard/index.html" class="nav-option">
-              <i
-                class="fa-solid fa-house fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Dashboard</h3>
-            </a>
-            <a href="../SmartSeed/seeding.html" class="nav-option">
-              <i
-                class="fa-solid fa-robot fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Smart Seeding</h3>
-            </a>
-            <a href="../kebun/kebun.html" class="nav-option">
-              <i
-                class="fa-solid fa-trowel fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Kebun Saya</h3>
-            </a>
-            <a href="jadwal.html" class="nav-option active-nav">
-              <i
-                class="fa-regular fa-calendar-days fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Jadwal Rawat</h3>
-            </a>
-            <a href="../Direktori/index.html" class="nav-option">
-              <i
-                class="fa-solid fa-seedling fa-lg"
-                style="color: rgb(255, 255, 255)"
-              ></i>
-              <h3>Penjual & Stock Bibit</h3>
-            </a>
-          </div>
-        </nav>
-      </aside>
-
-      <main class="content">
-        <section class="halaman-jadwal">
-          <header class="header-halaman" style="margin-bottom: 30px">
-            <h2 class="judul-halaman">Jadwal Rawat TBM Dinamis</h2>
-            <p class="sub-judul">
-              Buat timeline otomatis perawatan Tanaman Belum Menghasilkan (TBM)
-              Kakao.
-            </p>
-          </header>
-
-          <div class="kartu-input">
-            <div class="grup-input">
-              <label for="input-tanggal-tanam"
-                >Tanggal Penanaman Bibit Kakao:</label
-              >
-              <input type="date" id="input-tanggal-tanam" required />
-            </div>
-            <button
-              class="btn-primary tombol-proses"
-              onclick="buatJadwalPerawatan()"
-            >
-              Buat Jadwal
-            </button>
-          </div>
-
-          <div id="wadah-timeline-jadwal" class="garis-timeline">
-            <p class="pesan-kosong">
-              Silakan masukkan tanggal tanam di atas untuk melihat linimasa
-              perawatan kakao.
-            </p>
-          </div>
-        </section>
-      </main>
+<body>
+  <header class="header">
+    <i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255); visibility: hidden"></i>
+    <div class="logo">Tanam<span class="logop">Kakao</span></div>
+    <div class="icon-profil">
+      <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
+      <button class="logout-btn" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Keluar</span>
+      </button>
     </div>
+  </header>
 
-    <script src="../js/auth.js"></script>
-    <script>
-      requireAuth(); // Memastikan user yang masuk sudah login
-    </script>
-    <script src="../js/jadwal.js"></script>
-  </body>
+  <div class="main-container">
+    <aside class="navcontainer">
+      <nav class="nav">
+        <div class="nav-upper-options">
+          <a href="../Dashboard/index.html" class="nav-option">
+            <i class="fa-solid fa-house fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="../SmartSeed/seeding.html" class="nav-option">
+            <i class="fa-solid fa-robot fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Smart Seeding</h3>
+          </a>
+          <a href="../kebun/kebun.html" class="nav-option">
+            <i class="fa-solid fa-trowel fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Kebun Saya</h3>
+          </a>
+          <a href="../Jadwal/jadwal.html" class="nav-option active-nav">
+            <i class="fa-regular fa-calendar-days fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Jadwal Rawat</h3>
+          </a>
+          <a href="../Direktori/index.html" class="nav-option">
+            <i class="fa-solid fa-seedling fa-lg" style="color: rgb(255, 255, 255)"></i>
+            <h3>Direktori Supplier</h3>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section class="halaman-jadwal">
+        <header class="header-halaman" style="margin-bottom: 30px">
+          <h2 class="judul-halaman">Jadwal Rawat TBM Dinamis</h2>
+          <p class="sub-judul">
+            Buat timeline otomatis perawatan Tanaman Belum Menghasilkan (TBM)
+            Kakao.
+          </p>
+        </header>
+
+        <div class="kartu-input">
+          <div class="grup-input">
+            <label for="input-tanggal-tanam">Tanggal Penanaman Bibit Kakao:</label>
+            <input type="date" id="input-tanggal-tanam" required />
+          </div>
+          <button class="btn-primary tombol-proses" onclick="buatJadwalPerawatan()">
+            Buat Jadwal
+          </button>
+        </div>
+
+        <div id="wadah-timeline-jadwal" class="garis-timeline">
+          <p class="pesan-kosong">
+            Silakan masukkan tanggal tanam di atas untuk melihat linimasa
+            perawatan kakao.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script>
+    requireAuth(); // Memastikan user yang masuk sudah login
+  </script>
+  <script src="../js/jadwal.js"></script>
+</body>
+
 </html>

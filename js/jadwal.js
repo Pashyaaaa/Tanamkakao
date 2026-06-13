@@ -84,3 +84,21 @@ function buatJadwalPerawatan() {
     tempatJadwal.appendChild(article);
   });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const currentPath = window.location.pathname; 
+  const navLinks = document.querySelectorAll('.nav-option');
+
+  navLinks.forEach(link => {
+    // 1. Hapus class active dari semua link untuk berjaga-jaga jika ada yang "nyangkut" dari HTML
+    link.classList.remove('active');
+
+    // 2. Ekstrak pathname yang bersih dari URL link navigasi
+    const linkPath = new URL(link.href, window.location.origin).pathname;
+
+    // 3. Jika path saat ini sama dengan path pada link, aktifkan class-nya!
+    if (currentPath === linkPath || currentPath.endsWith(link.getAttribute('href').replace('../', ''))) {
+      link.classList.add('active');
+    }
+  });
+});
