@@ -29,7 +29,6 @@
       </div>
     </header>
 
-<<<<<<< HEAD
     <div class="main-container">
       <aside class="navcontainer">
         <nav class="nav">
@@ -69,80 +68,6 @@
               ></i>
               <h3>Direktori Supplier</h3>
             </a>
-=======
-<body>
-  <header class="header">
-    <i class="fa-solid fa-bars fa-xl menu-toggle" id="menu-toggle" style="color: rgb(255, 255, 255);"></i>
-    <div class="logo">🌱 Tanam<span class="logop">Kakao</span></div>
-
-    <div class="icon-profil">
-      <div class="profile-wrap" id="profileWrap">
-        <button class="profile-btn" id="profileBtn" aria-haspopup="true" aria-expanded="false">
-          <div class="profile-avatar" id="profileAvatar">P</div>
-          <span id="profileName">Petani</span>
-          <svg class="profile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="profile-dropdown" id="profileDropdown" role="menu">
-          <div class="dropdown-header">
-            <div class="dropdown-name" id="dropdownName">Petani</div>
-            <div class="dropdown-email" id="dropdownEmail">—</div>
-          </div>
-          <div class="dropdown-menu">
-            <a href="../index.html" class="dropdown-item" role="menuitem">
-              <i class="fa-solid fa-house fa-sm"></i>
-              Halaman Utama
-            </a>
-            <div class="dropdown-sep"></div>
-            <button class="dropdown-item danger" onclick="logout()" role="menuitem">
-              <i class="fa-solid fa-right-from-bracket fa-sm"></i>
-              Keluar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="main-container">
-    <aside class="navcontainer">
-      <nav class="nav">
-        <div class="nav-upper-options">
-          <a href="../Dashboard/index.html" class="nav-option">
-            <i class="fa-solid fa-house fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Dashboard</h3>
-          </a>
-          <a href="../SmartSeed/seeding.html" class="nav-option">
-            <i class="fa-solid fa-robot fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Smart Seeding</h3>
-          </a>
-          <a href="../kebun/kebun.html" class="nav-option">
-            <i class="fa-solid fa-trowel fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Kebun Saya</h3>
-          </a>
-          <a href="../Jadwal/jadwal.html" class="nav-option">
-            <i class="fa-regular fa-calendar-days fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Jadwal Rawat</h3>
-          </a>
-          <a href="../Direktori/index.html" class="nav-option">
-            <i class="fa-solid fa-seedling fa-lg" style="color: rgb(255, 255, 255)"></i>
-            <h3>Direktori Supplier</h3>
-          </a>
-        </div>
-      </nav>
-    </aside>
-
-    <main class="content">
-      <section class="halaman-kebun">
-        <header class="kebun-header-action">
-          <div>
-            <h2 class="judul-halaman">Data Kebun Saya</h2>
-            <p class="sub-judul">
-              Pantau luas lahan, total pohon, dan status pertumbuhan kakao
-              Anda.
-            </p>
->>>>>>> eebb33e8ce01da9a87af3d6be0ef3369952856ba
           </div>
         </nav>
       </aside>
@@ -224,7 +149,6 @@
         </header>
         <form id="formBlok">
           <input type="hidden" id="editIndex" value="-1" />
-
           <div class="form-group">
             <label for="namaBlok">Nama Blok Lahan</label>
             <input
@@ -234,7 +158,6 @@
               required
             />
           </div>
-
           <div class="form-row-custom">
             <div class="form-group" style="flex: 1">
               <label for="luasBlok">Luas (Hektar)</label>
@@ -259,17 +182,15 @@
                 type="number"
                 id="ketinggian"
                 min="0"
-                max="5000"
+                max="2000"
                 placeholder="Contoh: 300"
                 required
               />
             </div>
           </div>
-
           <button type="button" class="btn-hitung" id="btnHitung">
             Hitung Estimasi Jumlah Pohon
           </button>
-
           <div class="form-group">
             <label for="populasi">Estimasi Jumlah Pohon</label>
             <input
@@ -281,7 +202,6 @@
               required
             />
           </div>
-
           <div class="form-row-custom">
             <div class="form-group" style="flex: 1">
               <label for="curahHujan">Curah Hujan (mm/tahun)</label>
@@ -303,7 +223,6 @@
               />
             </div>
           </div>
-
           <div class="form-row-custom">
             <div class="form-group" style="flex: 1">
               <label for="jenisTanah">Jenis Tanah</label>
@@ -320,7 +239,7 @@
               </select>
             </div>
             <div class="form-group" style="flex: 1">
-              <label for="phTanah">pH Tanah</label>
+              <label for="phTanah">pH Tanah (4-9)</label>
               <input
                 type="number"
                 step="0.1"
@@ -332,7 +251,6 @@
               />
             </div>
           </div>
-
           <div class="form-group">
             <label for="status">Status Pertumbuhan Saat Ini</label>
             <select id="status">
@@ -340,7 +258,6 @@
               <option value="Masa TM">Sudah Berbuah (Masa TM)</option>
             </select>
           </div>
-
           <footer class="modal-footer">
             <button type="button" class="btn-batal" id="btnBatal">Batal</button>
             <button type="submit" class="btn-simpan" id="btnSimpan">
@@ -350,7 +267,6 @@
         </form>
       </div>
     </div>
-
     <script src="../js/auth.js"></script>
     <script>
       requireAuth();
