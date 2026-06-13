@@ -1,306 +1,402 @@
 <!doctype html>
 <html lang="id">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>TanamKakao - Panduan Digital</title>
     <link rel="stylesheet" href="../css/seed.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- HEADER -->
     <header class="header">
-        <i class="fa-solid fa-bars fa-xl" style="color: rgb(255, 255, 255); visibility: hidden;"></i>
-        <div class="logo">Tanam<span class="logop">Kakao</span></div>
+      <i
+        class="fa-solid fa-bars fa-xl"
+        style="color: rgb(255, 255, 255); visibility: hidden"
+      ></i>
+      <div class="logo">Tanam<span class="logop">Kakao</span></div>
 
-        <div class="icon-profil">
-            <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255);"></i>
-            <button class="logout-btn" onclick="logout()">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Keluar</span>
-            </button>
-        </div>
+      <div class="icon-profil">
+        <i class="fa-solid fa-user fa-lg" style="color: rgb(255, 255, 255)"></i>
+        <button class="logout-btn" onclick="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Keluar</span>
+        </button>
+      </div>
     </header>
     <!-- END HEADER -->
 
     <!-- MAIN SECTION -->
     <main class="main-container">
-        <div class="navcontainer">
-            <!-- SIDEBAR NAV -->
-            <nav class="nav">
-                <div class="nav-upper-options">
-                    <a href="../Dashboard/index.html" class="nav-option">
-                        <i class="fa-solid fa-house fa-lg" style="color: rgb(255, 255, 255);"></i>
-                        <h3>Dashboard</h3>
-                    </a>
-                    <a href="../SmartSeed/seeding.html" class="nav-option">
-                        <i class="fa-solid fa-robot fa-lg" style="color: rgb(255, 255, 255);"></i>
-                        <h3>Smart Seeding</h3>
-                    </a>
-                    <a href="../kebun/kebun.html" class="nav-option">
-                        <i class="fa-solid fa-trowel fa-lg" style="color: rgb(255, 255, 255)"></i>
-                        <h3>Kebun Saya</h3>
-                    </a>
-                    <a href="../Jadwal/Jadwal.html" class="nav-option">
-                        <i class="fa-regular fa-calendar-days fa-lg" style="color: rgb(255, 255, 255)"></i>
-                        <h3>Jadwal Rawat</h3>
-                    </a>
-                    <a href="../Direktori/index.html" class="nav-option">
-                        <i class="fa-solid fa-seedling fa-lg" style="color: rgb(255, 255, 255)"></i>
-                        <h3>Penjual & Stock Bibit</h3>
-                    </a>
-                </div>
-            </nav>
-        </div>
-        <!-- END SIDEBAR NAV -->
+      <div class="navcontainer">
+        <!-- SIDEBAR NAV -->
+        <nav class="nav">
+          <div class="nav-upper-options">
+            <a href="../Dashboard/index.html" class="nav-option">
+              <i
+                class="fa-solid fa-house fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Dashboard</h3>
+            </a>
+            <a href="seeding.html" class="nav-option">
+              <i
+                class="fa-solid fa-robot fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Smart Seeding</h3>
+            </a>
+            <a href="../kebun/kebun.html" class="nav-option">
+              <i
+                class="fa-solid fa-trowel fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Kebun Saya</h3>
+            </a>
+            <a href="../Jadwal/Jadwal.html" class="nav-option">
+              <i
+                class="fa-regular fa-calendar-days fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Jadwal Rawat</h3>
+            </a>
+            <a href="../Direktori/index.html" class="nav-option">
+              <i
+                class="fa-solid fa-seedling fa-lg"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              <h3>Penjual & Stock Bibit</h3>
+            </a>
+          </div>
+        </nav>
+      </div>
+      <!-- END SIDEBAR NAV -->
 
-        <!-- CONTENT -->
-        <div class="content">
-            <section class="halaman-dashboard">
-              <div class="ss-page-header">
-                <div>
-                  <h2 class="judul-halaman">Smart Seeding Matching</h2>
-                  <p class="sub-judul">Masukkan kondisi lahan — sistem akan mencocokkan varietas bibit kakao terbaik dari database riset nasional.</p>
+      <!-- CONTENT -->
+      <div class="content">
+        <section class="halaman-dashboard">
+          <div class="ss-page-header">
+            <div>
+              <h2 class="judul-halaman">Smart Seeding Matching</h2>
+              <p class="sub-judul">
+                Masukkan kondisi lahan — sistem akan mencocokkan varietas bibit
+                kakao terbaik dari database riset nasional.
+              </p>
+            </div>
+            <div class="ss-db-badge">
+              <i class="fa-solid fa-database"></i>
+              <span>8 Varietas · Data Puslitkoka & Kementan RI</span>
+            </div>
+          </div>
+
+          <div class="ss-layout">
+            <!-- ── FORM PANEL ──────────────────────────────────── -->
+            <div class="ss-form-panel">
+              <div class="ss-form-card">
+                <div class="ss-form-section-title">
+                  <i class="fa-solid fa-map-location-dot"></i> Data Lahan
                 </div>
-                <div class="ss-db-badge">
-                  <i class="fa-solid fa-database"></i>
-                  <span>8 Varietas · Data Puslitkoka & Kementan RI</span>
+
+                <div class="ss-form-grid">
+                  <div class="ss-field">
+                    <label class="ss-label" for="ketinggian">
+                      Ketinggian Lahan <span class="ss-hint">mdpl</span>
+                    </label>
+                    <div class="ss-input-wrap">
+                      <input
+                        type="number"
+                        id="ketinggian"
+                        class="ss-input"
+                        placeholder="Contoh: 300"
+                        min="0"
+                        max="2000"
+                      />
+                      <span class="ss-input-unit">mdpl</span>
+                    </div>
+                    <div class="ss-slider-wrap">
+                      <input
+                        type="range"
+                        id="ketinggian-slider"
+                        min="0"
+                        max="2000"
+                        value="300"
+                        class="ss-slider"
+                      />
+                      <div class="ss-slider-labels">
+                        <span>0</span><span>500</span><span>1000</span
+                        ><span>1500</span><span>2000</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ss-field">
+                    <label class="ss-label" for="curah-hujan">
+                      Curah Hujan <span class="ss-hint">mm/tahun</span>
+                    </label>
+                    <div class="ss-input-wrap">
+                      <input
+                        type="number"
+                        id="curah-hujan"
+                        class="ss-input"
+                        placeholder="Contoh: 1800"
+                        min="500"
+                        max="5000"
+                      />
+                      <span class="ss-input-unit">mm/th</span>
+                    </div>
+                  </div>
+
+                  <div class="ss-field">
+                    <label class="ss-label" for="suhu">
+                      Suhu Rata-rata <span class="ss-hint">°C</span>
+                    </label>
+                    <div class="ss-input-wrap">
+                      <input
+                        type="number"
+                        id="suhu"
+                        class="ss-input"
+                        placeholder="Contoh: 28"
+                        min="15"
+                        max="40"
+                      />
+                      <span class="ss-input-unit">°C</span>
+                    </div>
+                  </div>
+
+                  <div class="ss-field">
+                    <label class="ss-label" for="jenis-tanah"
+                      >Jenis Tanah</label
+                    >
+                    <select id="jenis-tanah" class="ss-select">
+                      <option value="">— Pilih jenis tanah —</option>
+                      <option value="latosol">Latosol (tanah merah)</option>
+                      <option value="andosol">Andosol (tanah vulkanik)</option>
+                      <option value="podsolik">Podsolik</option>
+                      <option value="alluvial">Alluvial</option>
+                      <option value="regosol">Regosol</option>
+                      <option value="grumusol">Grumusol</option>
+                    </select>
+                  </div>
+
+                  <div class="ss-field">
+                    <label class="ss-label" for="ph-tanah">
+                      pH Tanah <span class="ss-hint">4–9</span>
+                    </label>
+                    <div class="ss-input-wrap">
+                      <input
+                        type="number"
+                        id="ph-tanah"
+                        class="ss-input"
+                        placeholder="Contoh: 6.5"
+                        min="4"
+                        max="9"
+                        step="0.1"
+                      />
+                      <span class="ss-input-unit">pH</span>
+                    </div>
+                    <div class="ss-ph-bar-wrap">
+                      <div class="ss-ph-bar">
+                        <div class="ss-ph-indicator" id="ph-indicator"></div>
+                      </div>
+                      <div class="ss-ph-labels">
+                        <span>Asam</span><span>Netral</span><span>Basa</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ss-field">
+                    <label class="ss-label" for="luas-lahan">
+                      Luas Lahan <span class="ss-hint">hektar</span>
+                    </label>
+                    <div class="ss-input-wrap">
+                      <input
+                        type="number"
+                        id="luas-lahan"
+                        class="ss-input"
+                        placeholder="Contoh: 2"
+                        min="0.1"
+                        step="0.1"
+                      />
+                      <span class="ss-input-unit">Ha</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-       
-              <div class="ss-layout">
-       
-                <!-- ── FORM PANEL ──────────────────────────────────── -->
-                <div class="ss-form-panel">
-                  <div class="ss-form-card">
-       
-                    <div class="ss-form-section-title">
-                      <i class="fa-solid fa-map-location-dot"></i> Data Lahan
-                    </div>
-       
-                    <div class="ss-form-grid">
-       
-                      <div class="ss-field">
-                        <label class="ss-label" for="ketinggian">
-                          Ketinggian Lahan <span class="ss-hint">mdpl</span>
-                        </label>
-                        <div class="ss-input-wrap">
-                          <input type="number" id="ketinggian" class="ss-input" placeholder="Contoh: 300" min="0" max="2000" />
-                          <span class="ss-input-unit">mdpl</span>
-                        </div>
-                        <div class="ss-slider-wrap">
-                          <input type="range" id="ketinggian-slider" min="0" max="2000" value="300" class="ss-slider" />
-                          <div class="ss-slider-labels">
-                            <span>0</span><span>500</span><span>1000</span><span>1500</span><span>2000</span>
-                          </div>
-                        </div>
-                      </div>
-       
-                      <div class="ss-field">
-                        <label class="ss-label" for="curah-hujan">
-                          Curah Hujan <span class="ss-hint">mm/tahun</span>
-                        </label>
-                        <div class="ss-input-wrap">
-                          <input type="number" id="curah-hujan" class="ss-input" placeholder="Contoh: 1800" min="500" max="5000" />
-                          <span class="ss-input-unit">mm/th</span>
-                        </div>
-                      </div>
-       
-                      <div class="ss-field">
-                        <label class="ss-label" for="suhu">
-                          Suhu Rata-rata <span class="ss-hint">°C</span>
-                        </label>
-                        <div class="ss-input-wrap">
-                          <input type="number" id="suhu" class="ss-input" placeholder="Contoh: 28" min="15" max="40" />
-                          <span class="ss-input-unit">°C</span>
-                        </div>
-                      </div>
-       
-                      <div class="ss-field">
-                        <label class="ss-label" for="jenis-tanah">Jenis Tanah</label>
-                        <select id="jenis-tanah" class="ss-select">
-                          <option value="">— Pilih jenis tanah —</option>
-                          <option value="latosol">Latosol (tanah merah)</option>
-                          <option value="andosol">Andosol (tanah vulkanik)</option>
-                          <option value="podsolik">Podsolik</option>
-                          <option value="alluvial">Alluvial</option>
-                          <option value="regosol">Regosol</option>
-                          <option value="grumusol">Grumusol</option>
-                        </select>
-                      </div>
-       
-                      <div class="ss-field">
-                        <label class="ss-label" for="ph-tanah">
-                          pH Tanah <span class="ss-hint">4–9</span>
-                        </label>
-                        <div class="ss-input-wrap">
-                          <input type="number" id="ph-tanah" class="ss-input" placeholder="Contoh: 6.5" min="4" max="9" step="0.1" />
-                          <span class="ss-input-unit">pH</span>
-                        </div>
-                        <div class="ss-ph-bar-wrap">
-                          <div class="ss-ph-bar">
-                            <div class="ss-ph-indicator" id="ph-indicator"></div>
-                          </div>
-                          <div class="ss-ph-labels">
-                            <span>Asam</span><span>Netral</span><span>Basa</span>
-                          </div>
-                        </div>
-                      </div>
-       
-                      <div class="ss-field">
-                        <label class="ss-label" for="luas-lahan">
-                          Luas Lahan <span class="ss-hint">hektar</span>
-                        </label>
-                        <div class="ss-input-wrap">
-                          <input type="number" id="luas-lahan" class="ss-input" placeholder="Contoh: 2" min="0.1" step="0.1" />
-                          <span class="ss-input-unit">Ha</span>
-                        </div>
-                      </div>
-       
-                    </div>
-       
-                    <div class="ss-field ss-field-full">
-                      <label class="ss-label">Prioritas Utama</label>
-                      <div class="ss-priority-grid" id="prioritas-grid">
-                        <button class="ss-priority-btn" data-val="produktivitas">
-                          <i class="fa-solid fa-chart-line"></i> Produktivitas Tinggi
-                        </button>
-                        <button class="ss-priority-btn" data-val="tahan_hama">
-                          <i class="fa-solid fa-shield-halved"></i> Tahan Hama &amp; Penyakit
-                        </button>
-                        <button class="ss-priority-btn" data-val="fermentasi">
-                          <i class="fa-solid fa-flask"></i> Kualitas Fermentasi
-                        </button>
-                        <button class="ss-priority-btn" data-val="cepat_panen">
-                          <i class="fa-solid fa-bolt"></i> Cepat Berbuah
-                        </button>
-                      </div>
-                    </div>
-       
-                    <div class="ss-field ss-field-full">
-                      <label class="ss-label" for="catatan">
-                        Catatan Tambahan <span class="ss-optional">(opsional)</span>
-                      </label>
-                      <textarea id="catatan" class="ss-textarea" rows="2"
-                        placeholder="Contoh: lahan sering tergenang, dekat sungai, pernah ada serangan PBK..."></textarea>
-                    </div>
-       
-                    <button class="ss-submit-btn" id="ss-submit-btn" onclick="jalankanAnalisis()">
-                      <i class="fa-solid fa-seedling"></i>
-                      Temukan Bibit Terbaik
+
+                <div class="ss-field ss-field-full">
+                  <label class="ss-label">Prioritas Utama</label>
+                  <div class="ss-priority-grid" id="prioritas-grid">
+                    <button class="ss-priority-btn" data-val="produktivitas">
+                      <i class="fa-solid fa-chart-line"></i> Produktivitas
+                      Tinggi
                     </button>
-       
-                  </div>
-       
-                  <!-- Info database -->
-                  <div class="ss-db-info">
-                    <div class="ss-db-info-title">
-                      <i class="fa-solid fa-circle-info"></i> Varietas dalam Database
-                    </div>
-                    <div class="ss-db-chips">
-                      <span>Sulawesi 1</span><span>Sulawesi 2</span><span>ICCRI 03</span>
-                      <span>ICCRI 04</span><span>TSH 858</span><span>ICS 60</span>
-                      <span>MCC 02</span><span>Scavina 6</span>
-                    </div>
-                    <div class="ss-db-info-sub">Sumber: Puslitkoka Jember · Balittri Kementan RI · ACIAR</div>
+                    <button class="ss-priority-btn" data-val="tahan_hama">
+                      <i class="fa-solid fa-shield-halved"></i> Tahan Hama &amp;
+                      Penyakit
+                    </button>
+                    <button class="ss-priority-btn" data-val="fermentasi">
+                      <i class="fa-solid fa-flask"></i> Kualitas Fermentasi
+                    </button>
+                    <button class="ss-priority-btn" data-val="cepat_panen">
+                      <i class="fa-solid fa-bolt"></i> Cepat Berbuah
+                    </button>
                   </div>
                 </div>
-                <!-- END FORM PANEL -->
-       
-                <!-- ── RESULT PANEL ────────────────────────────────── -->
-                <div class="ss-result-panel" id="ss-result-panel">
-       
-                  <div class="ss-state-idle" id="ss-state-idle">
-                    <div class="ss-idle-icon">
-                      <i class="fa-solid fa-seedling"></i>
-                    </div>
-                    <h3>Siap Menganalisis</h3>
-                    <p>Isi data lahan di sebelah kiri, lalu klik "Temukan Bibit Terbaik".</p>
-                    <div class="ss-idle-stats">
-                      <div class="ss-idle-stat">
-                        <span class="ss-idle-stat-num">8</span>
-                        <span class="ss-idle-stat-label">Varietas</span>
-                      </div>
-                      <div class="ss-idle-stat">
-                        <span class="ss-idle-stat-num">5</span>
-                        <span class="ss-idle-stat-label">Parameter</span>
-                      </div>
-                      <div class="ss-idle-stat">
-                        <span class="ss-idle-stat-num">100</span>
-                        <span class="ss-idle-stat-label">Skor Maks</span>
-                      </div>
-                    </div>
-                  </div>
-       
-                  <div class="ss-state-loading" id="ss-state-loading" style="display:none;">
-                    <div class="ss-loading-spinner">
-                      <div class="ss-spinner-ring"></div>
-                      <i class="fa-solid fa-seedling ss-spinner-icon"></i>
-                    </div>
-                    <h3>Menganalisis Lahan...</h3>
-                    <p id="ss-loading-text">Membaca kondisi lahan kamu...</p>
-                    <div class="ss-loading-steps">
-                      <div class="ss-loading-step" id="step-1">
-                        <i class="fa-regular fa-circle"></i> Memvalidasi data lahan
-                      </div>
-                      <div class="ss-loading-step" id="step-2">
-                        <i class="fa-regular fa-circle"></i> Mencocokkan ke database varietas
-                      </div>
-                      <div class="ss-loading-step" id="step-3">
-                        <i class="fa-regular fa-circle"></i> Menghitung skor kesesuaian
-                      </div>
-                    </div>
-                  </div>
-       
-                  <div class="ss-state-result" id="ss-state-result" style="display:none;">
-                    <div class="ss-result-header">
-                      <div class="ss-result-title">
-                        <i class="fa-solid fa-circle-check"></i>
-                        Top 3 Rekomendasi Bibit
-                      </div>
-                      <button class="ss-reset-btn" onclick="resetForm()">
-                        <i class="fa-solid fa-rotate-left"></i> Ulang
-                      </button>
-                    </div>
-       
-                    <div class="ss-lahan-summary" id="ss-lahan-summary"></div>
-       
-                    <!-- Peringatan kondisi lahan -->
-                    <div class="ss-peringatan" id="ss-peringatan" style="display:none;"></div>
-       
-                    <div class="ss-rekomendasi-list" id="ss-rekomendasi-list"></div>
-       
-                    <div class="ss-ai-explanation">
-                      <div class="ss-ai-explanation-header">
-                        <i class="fa-solid fa-book-open"></i>
-                        Analisis Kondisi Lahan
-                      </div>
-                      <div class="ss-ai-explanation-body" id="ss-ai-explanation-body"></div>
-                    </div>
-       
-                    <div class="ss-disclaimer">
-                      <i class="fa-solid fa-circle-info"></i>
-                      Data varietas bersumber dari Puslitkoka Jember, Balittri Kementan RI, dan ACIAR. Untuk konfirmasi, konsultasikan dengan penyuluh pertanian setempat (PPL).
-                    </div>
-                  </div>
-       
+
+                <div class="ss-field ss-field-full">
+                  <label class="ss-label" for="catatan">
+                    Catatan Tambahan <span class="ss-optional">(opsional)</span>
+                  </label>
+                  <textarea
+                    id="catatan"
+                    class="ss-textarea"
+                    rows="2"
+                    placeholder="Contoh: lahan sering tergenang, dekat sungai, pernah ada serangan PBK..."
+                  ></textarea>
                 </div>
-                <!-- END RESULT PANEL -->
-       
+
+                <button
+                  class="ss-submit-btn"
+                  id="ss-submit-btn"
+                  onclick="jalankanAnalisis()"
+                >
+                  <i class="fa-solid fa-seedling"></i>
+                  Temukan Bibit Terbaik
+                </button>
               </div>
-            </section>
-        </div>
-        <!-- END CONTENT -->
+
+              <!-- Info database -->
+              <div class="ss-db-info">
+                <div class="ss-db-info-title">
+                  <i class="fa-solid fa-circle-info"></i> Varietas dalam
+                  Database
+                </div>
+                <div class="ss-db-chips">
+                  <span>Sulawesi 1</span><span>Sulawesi 2</span
+                  ><span>ICCRI 03</span> <span>ICCRI 04</span
+                  ><span>TSH 858</span><span>ICS 60</span> <span>MCC 02</span
+                  ><span>Scavina 6</span>
+                </div>
+                <div class="ss-db-info-sub">
+                  Sumber: Puslitkoka Jember · Balittri Kementan RI · ACIAR
+                </div>
+              </div>
+            </div>
+            <!-- END FORM PANEL -->
+
+            <!-- ── RESULT PANEL ────────────────────────────────── -->
+            <div class="ss-result-panel" id="ss-result-panel">
+              <div class="ss-state-idle" id="ss-state-idle">
+                <div class="ss-idle-icon">
+                  <i class="fa-solid fa-seedling"></i>
+                </div>
+                <h3>Siap Menganalisis</h3>
+                <p>
+                  Isi data lahan di sebelah kiri, lalu klik "Temukan Bibit
+                  Terbaik".
+                </p>
+                <div class="ss-idle-stats">
+                  <div class="ss-idle-stat">
+                    <span class="ss-idle-stat-num">8</span>
+                    <span class="ss-idle-stat-label">Varietas</span>
+                  </div>
+                  <div class="ss-idle-stat">
+                    <span class="ss-idle-stat-num">5</span>
+                    <span class="ss-idle-stat-label">Parameter</span>
+                  </div>
+                  <div class="ss-idle-stat">
+                    <span class="ss-idle-stat-num">100</span>
+                    <span class="ss-idle-stat-label">Skor Maks</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="ss-state-loading"
+                id="ss-state-loading"
+                style="display: none"
+              >
+                <div class="ss-loading-spinner">
+                  <div class="ss-spinner-ring"></div>
+                  <i class="fa-solid fa-seedling ss-spinner-icon"></i>
+                </div>
+                <h3>Menganalisis Lahan...</h3>
+                <p id="ss-loading-text">Membaca kondisi lahan kamu...</p>
+                <div class="ss-loading-steps">
+                  <div class="ss-loading-step" id="step-1">
+                    <i class="fa-regular fa-circle"></i> Memvalidasi data lahan
+                  </div>
+                  <div class="ss-loading-step" id="step-2">
+                    <i class="fa-regular fa-circle"></i> Mencocokkan ke database
+                    varietas
+                  </div>
+                  <div class="ss-loading-step" id="step-3">
+                    <i class="fa-regular fa-circle"></i> Menghitung skor
+                    kesesuaian
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="ss-state-result"
+                id="ss-state-result"
+                style="display: none"
+              >
+                <div class="ss-result-header">
+                  <div class="ss-result-title">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Top 3 Rekomendasi Bibit
+                  </div>
+                  <button class="ss-reset-btn" onclick="resetForm()">
+                    <i class="fa-solid fa-rotate-left"></i> Ulang
+                  </button>
+                </div>
+
+                <div class="ss-lahan-summary" id="ss-lahan-summary"></div>
+
+                <!-- Peringatan kondisi lahan -->
+                <div
+                  class="ss-peringatan"
+                  id="ss-peringatan"
+                  style="display: none"
+                ></div>
+
+                <div class="ss-rekomendasi-list" id="ss-rekomendasi-list"></div>
+
+                <div class="ss-ai-explanation">
+                  <div class="ss-ai-explanation-header">
+                    <i class="fa-solid fa-book-open"></i>
+                    Analisis Kondisi Lahan
+                  </div>
+                  <div
+                    class="ss-ai-explanation-body"
+                    id="ss-ai-explanation-body"
+                  ></div>
+                </div>
+
+                <div class="ss-disclaimer">
+                  <i class="fa-solid fa-circle-info"></i>
+                  Data varietas bersumber dari Puslitkoka Jember, Balittri
+                  Kementan RI, dan ACIAR. Untuk konfirmasi, konsultasikan dengan
+                  penyuluh pertanian setempat (PPL).
+                </div>
+              </div>
+            </div>
+            <!-- END RESULT PANEL -->
+          </div>
+        </section>
+      </div>
+      <!-- END CONTENT -->
     </main>
     <!-- END MAIN SECTION -->
 
-    <script src="https://kit.fontawesome.com/26baa55295.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/26baa55295.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="../js/auth.js"></script>
     <script>
-        requireAuth();
+      requireAuth();
     </script>
     <script src="../js/seeding-engine.js"></script>
     <script src="../js/seeding.js"></script>
-</body>
-
+  </body>
 </html>
